@@ -1,0 +1,160 @@
+% 生成时间: 2026-01-26 23:23:18
+% 报告日期: 2026年1月26日
+% 论文日期: 2026年1月23日
+% AG论文: 12篇
+% RT&QA论文: 8篇
+
+\documentclass[9pt, a4paper]{article}
+% ======================
+% 基础文档设置与中文支持
+% ======================
+\usepackage{geometry}           % 页面布局控制（边距、纸张大小等）
+\geometry{scale=0.75}
+\usepackage{setspace}           % 行间距控制
+\usepackage{fontspec}           % 高级字体控制
+\usepackage{xeCJK}              % 中文字体支持
+\usepackage{ctex}               % 完整中文支持
+\usepackage{CJKutf8}            % UTF-8编码支持（备用）
+\usepackage{zhnumber}           % 中文数字转换
+
+% ======================
+% 数学相关包
+% ======================
+\usepackage{amsmath}            % 基础数学公式（矩阵、多行公式等）
+\usepackage{amssymb}            % 扩展数学符号
+\usepackage{amsthm}             % 定理环境定制
+\usepackage{mathtools}          % amsmath的增强版（矩阵、符号等）
+\usepackage{mathrsfs}           % 提供花体字母
+\usepackage{latexsym}           % 特殊数学符号
+\usepackage{stmaryrd}            % 额外数学符号
+
+% ======================
+% 图形与绘图
+% ======================
+\usepackage{graphicx}           % 图片插入（\includegraphics）
+\usepackage{tikz}               % 矢量绘图核心包
+\usepackage{tikz-cd}            % 交换图绘制（范畴论）
+%\usepackage{quiver}             
+
+% ======================
+% 参考文献与引用
+% ======================
+\usepackage[authoryear]{natbib} % 作者-年份引用格式
+\usepackage{etoolbox}           % 参考文献工具（定制bib样式）
+
+% ======================
+% 超链接与交互
+% ======================
+\usepackage{xcolor}             % 颜色支持（链接着色）
+\usepackage{hyperref}           % 超链接/书签（需最后加载）
+\hypersetup{                    % hyperref配置
+    colorlinks=true,            % 彩色链接而非方框
+    citecolor=green,            % 引用颜色
+    urlcolor=red,               % 外部URL颜色
+    bookmarksnumbered=true      % 书签显示章节编号
+}
+\usepackage{cleveref}           % 智能引用（\cref自动识别类型）
+
+% ======================
+% 列表与布局增强
+% ======================
+\usepackage{enumitem}           % 列表定制（间距、标签等）
+\usepackage{fancyhdr}           % 页眉页脚定制
+\usepackage{lmodern}            % 拉丁现代字体（矢量字体）
+
+% ======================
+% 其他工具
+% ======================
+\usepackage{pdfpages} 
+
+% 定理环境样式
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{示例}
+\newtheorem{remark}[theorem]{注记}
+
+\theoremstyle{remark}
+
+% 自定义命令
+\definecolor{arxivblue}{RGB}{0, 102, 204}
+\newcommand{\arxiv}[3]{\href{https://arxiv.org/abs/#1}{#1}, \textbf{\textcolor{arxivblue}{#2}}, #3}
+\newcommand{\AGnumber}{12}
+\newcommand{\RTQAnumber}{8}
+\newcommand{\NewestDate}{2026年1月26日}
+
+
+
+\begin{document}
+\begin{center}
+    \Huge\textbf{不漏arXiv：\NewestDate\footnote{感谢arXiv提供的服务.}\footnote{由于arXiv api的局限性, 实际上获取的是arXiv api认为的最近的有论文的那一天的所有论文. 三个category中没有进行去重, 顺序也可能存在一定问题, 麻烦整理者自行增删.}} \\
+\end{center}
+
+\setcounter{section}{-1}
+
+\begin{center}
+    今日AG数量：\AGnumber
+    
+    今日RT \& QA数量：\RTQAnumber
+    
+\end{center}
+
+
+\section{精选}
+
+
+\section{AG}
+%AG begin
+\arxiv{2601.16944v1}{Atkin polynomials for families of abelian varieties with real multiplication}{Gabriele Bogo, Yingkun Li}
+
+\arxiv{2601.16929v1}{Partial Hasse invariants for genus zero curves in Hilbert modular varieties}{Gabriele Bogo, Yingkun Li}
+
+\arxiv{2601.16871v1}{Twisted Derived Equivalences Between Abelian Varieties}{Tyler Lane}
+
+\arxiv{2601.16765v1}{Components of the nested Hilbert scheme of few points}{Michele Graffeo, Paolo Lella}
+
+\arxiv{2601.16729v1}{Derived equivalences for complexes with support}{K. Ganapathy, Sarang Sane}
+
+\arxiv{2601.16646v1}{Algebraic Geometry for Spin-Adapted Coupled Cluster Theory}{Fabian M. Faulstich, Svala Sverrisdóttir}
+
+\arxiv{2601.16591v1}{$p$-adic Periods and Selmer Scheme Images}{David Corwin, Ishai Dan-Cohen}
+
+\arxiv{2601.16557v1}{Hodge Theory of $p$-adic analytic varieties: a survey}{Pierre Colmez, Wiesława Nizioł}
+
+\arxiv{2601.16505v1}{Computing Picard Schemes}{Hyuk Jun Kweon, Madhavan Venkatesh}
+
+\arxiv{2601.16497v1}{Landau-Ginzburg models for Fano threefolds of Picard rank one and exceptional collections}{Victor Przyjalkowski}
+
+\arxiv{2601.16433v1}{Quasi-projective nilmanifolds}{Taito Shimoji}
+
+\arxiv{2601.16415v1}{Chow rings of moduli spaces of genus 0 curves with collisions}{William C. Newman}
+
+%AG end
+
+\section{RT \& QA}
+%RT&QA begin
+\arxiv{2601.16937v1}{The geometry of tilting composition series via Richardson varieties}{Joseph Baine, Chris Hone}
+
+\arxiv{2601.16889v1}{On the computation of the canonical basis for irreducible highest weight $U_q (\mathfrak{gl}_{\infty})$-module}{Nicolas Jacon, Abel Lacabanne}
+
+\arxiv{2601.16889v1}{On the computation of the canonical basis for irreducible highest weight $U_q (\mathfrak{gl}_{\infty})$-module}{Nicolas Jacon, Abel Lacabanne}
+
+\arxiv{2601.16877v1}{Tautological classes for (n,n+1) torus knots}{Eugene Gorsky, Anton Mellit}
+
+\arxiv{2601.16742v1}{Homomorphisms between Bott-Samelson bimodules corresponding to sequences of reflections}{Vladimir Shchigolev}
+
+\arxiv{2601.16646v1}{Algebraic Geometry for Spin-Adapted Coupled Cluster Theory}{Fabian M. Faulstich, Svala Sverrisdóttir}
+
+\arxiv{2601.16437v1}{The Getzler-Gauss-Manin connection and Kontsevich-Soibelman operations on the periodic cyclic homology}{Zihong Chen}
+
+\arxiv{2601.16375v1}{Duality for graded Lie algebras}{Andrey Lazarev, Rong Tang}
+
+%RT&QA end
+
+
+\end{document}
