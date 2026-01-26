@@ -2,18 +2,22 @@ name: Daily arXiv Fetch
 
 on:
   schedule:
-    # 每天UTC 6:00运行（北京时间14:00）
     - cron: '0 6 * * *'
-  # 允许手动触发
   workflow_dispatch:
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write  # 确保有写入权限
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}  # 这个会自动提供
+        fetch-depth: 0
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -21,26 +25,22 @@ jobs:
         python-version: '3.10'
     
     - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      run: pip install -r requirements.txt
     
     - name: Run fetch script
       run: |
         python fetch_papers.py
-        echo "📁 生成的文件:"
+        echo "生成的文件:"
         ls -la *.tex
     
-    - name: Upload generated files
-      uses: actions/upload-artifact@v4
-      with:
-        name: arxiv-papers
-        path: |
-          arxiv_*.tex
-          latest.tex
-        retention-days: 7
-    
-    - name: Show success message
+    - name: Commit and push if changes
       run: |
-        echo "✅ arXiv论文获取完成！"
-        echo "📄 生成的TeX文件可以在Artifacts中下载。"
-        echo "⏰ 下次运行时间：明天UTC 6:00（北京时间14:00）"
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add *.tex
+        if git diff --staged --quiet; then
+          echo "没有变化，跳过提交"
+        else
+          git commit -m "自动更新: arXiv论文 $(date +%Y-%m-%d)"
+          git push
+        fi
