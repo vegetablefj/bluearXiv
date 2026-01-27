@@ -9,14 +9,11 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     
-    permissions:
-      contents: write  # 确保有写入权限
-    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}  # 这个会自动提供
+        token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
     
     - name: Set up Python
@@ -25,22 +22,48 @@ jobs:
         python-version: '3.10'
     
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: |
+        pip install -r requirements.txt
     
     - name: Run fetch script
       run: |
+        echo "开始获取arXiv论文..."
         python fetch_papers.py
         echo "生成的文件:"
         ls -la *.tex
+        echo "Daily Tex Documents 文件夹内容:"
+        ls -la "Daily Tex Documents"/
     
-    - name: Commit and push if changes
+    - name: Commit and push changes
       run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add *.tex
-        if git diff --staged --quiet; then
-          echo "没有变化，跳过提交"
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        
+        # 添加所有 .tex 文件，包括子目录中的
+        git add *.tex "Daily Tex Documents"/*.tex
+        
+        if git diff-index --quiet HEAD --; then
+          echo "没有文件变化，无需提交"
         else
-          git commit -m "自动更新: arXiv论文 $(date +%Y-%m-%d)"
-          git push
+          echo "检测到文件变化，准备提交"
+          git commit -m "自动更新arXiv论文 - $(date +'%Y-%m-%d %H:%M')"
+          git push origin main
+          echo "✅ 已提交并推送更改"
         fi
+    
+    - name: Upload generated files as artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: arxiv-papers
+        path: |
+          latest.tex
+          "Daily Tex Documents"/arxiv_*.tex
+        retention-days: 7
+    
+    - name: Show success message
+      run: |
+        echo "✅ arXiv论文获取完成！"
+        echo "📄 latest.tex 在根目录"
+        echo "📁 历史文件在 Daily Tex Documents 文件夹"
+        echo "📦 文件可在Artifacts中下载"
+        echo "⏰ 下次运行时间：明天UTC 6:00（北京时间14:00）"
