@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-import arxiv
-import datetime
+import requests
+from datetime import datetime, timedelta
+import xml.etree.ElementTree as ET
+import os
 import time
-import random
-from typing import List, Dict
 import logging
-from collections import defaultdict
+from typing import List, Dict
 
 # 配置日志
 logging.basicConfig(level=logging.INFO)
@@ -17,55 +17,89 @@ CATEGORIES = {
     "RT": "math.RT", 
     "QA": "math.QA"
 }
-MAX_RESULTS = 50
-MAX_RETRIES = 3
-RETRY_DELAY = 5
+MAX_RESULTS = 100
+MAX_RETRIES = 3  # 添加重试机制
+RETRY_DELAY = 5   # 重试延迟时间
 
-def get_papers_with_retry(category: str, max_results: int) -> List[Dict]:
-    """带重试机制的论文获取函数"""
-    client = arxiv.Client()
-    
-    for attempt in range(MAX_RETRIES):
-        try:
-            # 构建搜索
-            search = arxiv.Search(
-                query=f"cat:{category}",
-                max_results=max_results,
-                sort_by=arxiv.SortCriterion.SubmittedDate,
-                sort_order=arxiv.SortOrder.Descending
-            )
-            
-            papers = []
-            logger.info(f"尝试获取 {category} 的论文 (第{attempt+1}次尝试)...")
-            
-            for result in client.results(search):
-                paper = {
-                    "id": result.entry_id.split('/')[-1],
-                    "title": result.title,
-                    "authors": [author.name for author in result.authors],
-                    "published": result.published,
-                    "published_date": result.published.date()
-                }
-                papers.append(paper)
-            
-            logger.info(f"成功获取 {len(papers)} 篇 {category} 论文")
-            return papers
-            
-        except Exception as e:
-            logger.warning(f"第{attempt+1}次尝试获取 {category} 失败: {e}")
-            if attempt < MAX_RETRIES - 1:
-                wait_time = RETRY_DELAY * (2 ** attempt) + random.uniform(0, 1)
-                logger.info(f"等待 {wait_time:.1f} 秒后重试...")
-                time.sleep(wait_time)
-            else:
-                logger.error(f"获取 {category} 失败，已达最大重试次数")
-                return []
-    
-    return []
-
+# 修改 get_papers 函数中的查询构建部分
 def get_papers(category: str) -> List[Dict]:
-    """获取指定分类的最新论文"""
-    return get_papers_with_retry(category, MAX_RESULTS)
+    """使用 arXiv API 直接获取论文"""
+    # 计算日期范围
+    today = datetime.now().date()
+    yesterday = today - timedelta(days=3)
+    
+    # 格式化日期字符串为 YYYYMMDD
+    start_date = yesterday.strftime("%Y%m%d")
+    end_date = today.strftime("%Y%m%d")
+    
+    # 构建查询 URL
+    base_url = "https://export.arxiv.org/api/query"
+    query = f"cat:{category}+AND+submittedDate:[{start_date}+TO+{end_date}]"
+    
+    # 完整的URL
+    full_url = f"{base_url}?search_query={query}&max_results={MAX_RESULTS}&sortBy=submittedDate&sortOrder=descending"
+    print(f"请求URL: {full_url}")  # 打印URL用于调试
+    
+    headers = {
+        "User-Agent": "arXiv-Daily-Fetcher/1.0 (contact: vegetablefj@github)"
+    }
+    
+    try:
+        response = requests.get(full_url, headers=headers, timeout=30)
+        response.raise_for_status()
+        
+        # 解析 XML 响应
+        root = ET.fromstring(response.content)
+        papers = []
+        
+        # 定义命名空间 - 这是关键！
+        ns = {'atom': 'http://www.w3.org/2005/Atom'}
+        
+        # 检查是否有条目
+        entries = root.findall('atom:entry', ns)
+        print(f"找到 {len(entries)} 个条目")
+        
+        for entry in entries:
+            # 提取论文ID - 使用正确的命名空间
+            id_elem = entry.find('atom:id', ns)
+            paper_id = id_elem.text if id_elem is not None else None
+            if paper_id:
+                paper_id = paper_id.split('/')[-1]
+            else:
+                paper_id = "unknown"
+            
+            # 提取标题 - 使用正确的命名空间
+            title_elem = entry.find('atom:title', ns)
+            title = title_elem.text.strip() if title_elem is not None and title_elem.text else "无标题"
+            
+            # 提取作者 - 使用正确的命名空间
+            authors = []
+            author_elems = entry.findall('atom:author', ns)
+            for author_elem in author_elems:
+                name_elem = author_elem.find('atom:name', ns)
+                if name_elem is not None and name_elem.text:
+                    authors.append(name_elem.text)
+            
+            # 提取发布时间 - 使用正确的命名空间
+            published_elem = entry.find('atom:published', ns)
+            published = published_elem.text if published_elem is not None else None
+            
+            paper_info = {
+                "id": paper_id,
+                "title": title,
+                "authors": authors,
+                "published": published
+            }
+            papers.append(paper_info)
+            # 打印第一篇论文的信息用于调试
+            if len(papers) == 1:
+                print("第一篇论文信息:", paper_info)
+        
+        return papers
+        
+    except Exception as e:
+        print(f"请求失败: {e}")
+        return []
 
 def format_authors(authors: List[str]) -> str:
     """格式化作者列表"""
@@ -73,59 +107,40 @@ def format_authors(authors: List[str]) -> str:
         return ", ".join(authors[:3]) + " 等"
     return ", ".join(authors)
 
-def find_latest_paper_date(papers_list: List[List[Dict]]) -> datetime.date:
-    """找到所有论文中最新的日期"""
-    all_dates = set()
-    
-    for papers in papers_list:
-        for paper in papers:
-            all_dates.add(paper['published_date'])
-    
-    if all_dates:
-        return max(all_dates)
-    else:
-        return datetime.datetime.now().date()
-
-def filter_papers_by_date(papers: List[Dict], target_date: datetime.date) -> List[Dict]:
-    """过滤出指定日期的论文"""
-    return [p for p in papers if p['published_date'] == target_date]
-
 def main():
-    print("🔍 开始获取arXiv论文...")
+    print("🔍 开始获取arXiv论文（直接API版本）...")
     start_time = time.time()
     
     # 获取当天日期（用于显示）
-    today = datetime.datetime.now().date()
+    today = datetime.now().date()
     today_str = f"{today.year}年{today.month}月{today.day}日"
     
     # 分别获取各分类论文
-    papers_ag = get_papers(CATEGORIES["AG"])
-    papers_rt = get_papers(CATEGORIES["RT"])
-    papers_qa = get_papers(CATEGORIES["QA"])
+    papers_ag = get_papers("math.AG")
+    time.sleep(1)  # 避免请求过快
     
-    # 找到最新有论文的日期
-    latest_date = find_latest_paper_date([papers_ag, papers_rt, papers_qa])
-    latest_date_str = f"{latest_date.year}年{latest_date.month}月{latest_date.day}日"
+    papers_rt = get_papers("math.RT")
+    time.sleep(1)
     
-    print(f"📅 日期信息:")
-    print(f"  报告生成日期: {today_str}")
-    print(f"  最新论文日期: {latest_date_str}")
+    papers_qa = get_papers("math.QA")
     
-    # 过滤出最新日期的论文
-    ag_latest = filter_papers_by_date(papers_ag, latest_date)
-    rt_latest = filter_papers_by_date(papers_rt, latest_date)
-    qa_latest = filter_papers_by_date(papers_qa, latest_date)
+    # 合并RT和QA
+    papers_rt_qa = papers_rt + papers_qa
     
-    # 合并RT和QA，按时间排序
-    rt_qa_latest = rt_latest + qa_latest
-    rt_qa_latest.sort(key=lambda x: x['published'], reverse=True)
+    # 统计数量
+    ag_count = len(papers_ag)
+    rt_count = len(papers_rt)
+    qa_count = len(papers_qa)
+    rt_qa_count = len(papers_rt_qa)
     
     elapsed_time = time.time() - start_time
-    print(f"\n📊 论文统计 (耗时: {elapsed_time:.1f}秒):")
-    print(f"  AG: 获取{len(papers_ag)}篇 → {latest_date_str}有{len(ag_latest)}篇")
-    print(f"  RT: 获取{len(papers_rt)}篇 → {latest_date_str}有{len(rt_latest)}篇") 
-    print(f"  QA: 获取{len(papers_qa)}篇 → {latest_date_str}有{len(qa_latest)}篇")
-    print(f"  RT+QA 总计: {len(rt_qa_latest)} 篇")
+    
+    print(f"\n📊 统计结果 (耗时: {elapsed_time:.1f}秒):")
+    print(f"  报告生成日期: {today_str}")
+    print(f"  AG: {ag_count} 篇")
+    print(f"  RT: {rt_count} 篇")
+    print(f"  QA: {qa_count} 篇")
+    print(f"  RT+QA 总计: {rt_qa_count} 篇")
     
     # 检查模板文件
     try:
@@ -135,17 +150,17 @@ def main():
         print("❌ 错误: 未找到 template.tex 文件")
         return
     
-    # 替换数量命令 - 使用最新日期的论文数量
+    # 替换数量命令
     template = template.replace(
         r"\newcommand{\AGnumber}{1}", 
-        f"\\newcommand{{\\AGnumber}}{{{len(ag_latest)}}}"
+        f"\\newcommand{{\\AGnumber}}{{{ag_count}}}"
     )
     template = template.replace(
         r"\newcommand{\RTQAnumber}{2}", 
-        f"\\newcommand{{\\RTQAnumber}}{{{len(rt_qa_latest)}}}"
+        f"\\newcommand{{\\RTQAnumber}}{{{rt_qa_count}}}"
     )
     
-    # 替换日期命令 - 使用当天日期
+    # 替换日期命令
     template = template.replace(
         r"\newcommand{\NewestDate}{}", 
         f"\\newcommand{{\\NewestDate}}{{{today_str}}}"
@@ -153,13 +168,13 @@ def main():
     
     # 生成AG部分的论文条目
     ag_entries = []
-    for paper in ag_latest:
+    for paper in papers_ag:
         authors = format_authors(paper['authors'])
         ag_entries.append(f"\\arxiv{{{paper['id']}}}{{{paper['title']}}}{{{authors}}}\n\n")
     
     # 生成RT&QA部分的论文条目
     rt_qa_entries = []
-    for paper in rt_qa_latest:
+    for paper in papers_rt_qa:
         authors = format_authors(paper['authors'])
         rt_qa_entries.append(f"\\arxiv{{{paper['id']}}}{{{paper['title']}}}{{{authors}}}\n\n")
     
@@ -167,31 +182,18 @@ def main():
     if "%AG begin\n\n%AG end" in template:
         ag_content = "%AG begin\n" + "".join(ag_entries) + "%AG end"
         template = template.replace("%AG begin\n\n%AG end", ag_content)
-    else:
-        print("⚠️  警告: 未找到 AG 占位符")
     
     if "%RT&QA begin\n\n%RT&QA end" in template:
         rt_qa_content = "%RT&QA begin\n" + "".join(rt_qa_entries) + "%RT&QA end"
         template = template.replace("%RT&QA begin\n\n%RT&QA end", rt_qa_content)
-    else:
-        print("⚠️  警告: 未找到 RT&QA 占位符")
     
-    # 添加注释信息
-    comment = f"% 生成时间: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-    comment += f"% 报告日期: {today_str}\n"
-    comment += f"% 论文日期: {latest_date_str}\n"
-    comment += f"% AG论文: {len(ag_latest)}篇\n"
-    comment += f"% RT&QA论文: {len(rt_qa_latest)}篇\n\n"
-    
-    template = comment + template
-
-    # 创建 Daily Tex Documents 文件夹
+    # 确保输出目录存在
     output_dir = "Daily Tex Documents"
     os.makedirs(output_dir, exist_ok=True)
     
-    # 保存文件到指定文件夹
-    today_str = datetime.datetime.now().strftime("%Y%m%d")
-    output_filename = os.path.join(output_dir, f"arxiv_{today_str}.tex")
+    # 保存文件
+    today_file_str = datetime.now().strftime("%Y%m%d")
+    output_filename = os.path.join(output_dir, f"arxiv_{today_file_str}.tex")
     
     with open(output_filename, 'w', encoding='utf-8') as f:
         f.write(template)
@@ -200,23 +202,9 @@ def main():
     with open("latest.tex", 'w', encoding='utf-8') as f:
         f.write(template)
     
-    print(f"✅ 已生成文件:")
+    print(f"\n✅ 已生成文件:")
     print(f"   {output_filename}")
     print(f"   latest.tex (最新版，根目录)")
-    print(f"   使用的最近日期: {newest_date}")
-    
-    # 显示详细统计
-    print(f"\n📋 详细统计:")
-    print(f"  AG: {len(ag_latest)}篇 ({latest_date_str}的论文)")
-    print(f"  RT: {len(rt_latest)}篇 ({latest_date_str}的论文)")
-    print(f"  QA: {len(qa_latest)}篇 ({latest_date_str}的论文)")
-    print(f"  RT+QA: {len(rt_qa_latest)}篇")
-    
-    if len(ag_latest) + len(rt_qa_latest) == 0:
-        print("\n⚠️  注意: 没有找到任何论文，可能是因为:")
-        print("  1. arXiv API暂时没有数据")
-        print("  2. 网络连接问题")
-        print("  3. 指定的分类在所选日期没有新论文")
 
 if __name__ == "__main__":
     main()
