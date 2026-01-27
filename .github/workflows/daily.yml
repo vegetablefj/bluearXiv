@@ -9,6 +9,9 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write  # 添加权限声明
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -36,16 +39,20 @@ jobs:
     
     - name: Commit and push changes
       run: |
-        git config --global user.name 'GitHub Actions'
-        git config --global user.email 'actions@github.com'
+        # 配置Git用户
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         
         # 添加所有 .tex 文件，包括子目录中的
         git add *.tex "Daily Tex Documents"/*.tex
         
-        if git diff-index --quiet HEAD --; then
+        # 检查是否有需要提交的更改
+        if git diff --cached --quiet; then
           echo "没有文件变化，无需提交"
         else
           echo "检测到文件变化，准备提交"
+          # 先拉取最新更改，避免冲突
+          git pull --rebase origin main || echo "拉取失败，继续推送"
           git commit -m "自动更新arXiv论文 - $(date +'%Y-%m-%d %H:%M')"
           git push origin main
           echo "✅ 已提交并推送更改"
