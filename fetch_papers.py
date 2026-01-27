@@ -184,22 +184,26 @@ def main():
     comment += f"% RT&QA论文: {len(rt_qa_latest)}篇\n\n"
     
     template = comment + template
+
+    # 创建 Daily Tex Documents 文件夹
+    output_dir = "Daily Tex Documents"
+    os.makedirs(output_dir, exist_ok=True)
     
-    # 保存文件
-    output_filename = f"arxiv_{today.strftime('%Y%m%d')}.tex"
+    # 保存文件到指定文件夹
+    today_str = datetime.datetime.now().strftime("%Y%m%d")
+    output_filename = os.path.join(output_dir, f"arxiv_{today_str}.tex")
     
     with open(output_filename, 'w', encoding='utf-8') as f:
         f.write(template)
     
-    # 也保存一个latest.tex方便查看
+    # latest.tex 仍然保存在根目录
     with open("latest.tex", 'w', encoding='utf-8') as f:
         f.write(template)
     
-    print(f"\n✅ 已生成文件:")
+    print(f"✅ 已生成文件:")
     print(f"   {output_filename}")
-    print(f"   latest.tex (最新版)")
-    print(f"   报告日期: {today_str}")
-    print(f"   显示的论文日期: {latest_date_str}")
+    print(f"   latest.tex (最新版，根目录)")
+    print(f"   使用的最近日期: {newest_date}")
     
     # 显示详细统计
     print(f"\n📋 详细统计:")
