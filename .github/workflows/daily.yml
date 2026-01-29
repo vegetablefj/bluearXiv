@@ -2,7 +2,7 @@ name: Daily arXiv Fetch
 
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -74,3 +74,4 @@ jobs:
         echo "📁 历史文件在 Daily Tex Documents 文件夹"
         echo "📦 文件可在Artifacts中下载"
         echo "⏰ 下次运行时间：明天UTC 6:00（北京时间14:00）"
+
