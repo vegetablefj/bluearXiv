@@ -1,0 +1,212 @@
+\documentclass[9pt, a4paper]{article}
+% ======================
+% 基础文档设置与中文支持
+% ======================
+\usepackage{geometry}           % 页面布局控制（边距、纸张大小等）
+\geometry{scale=0.75}
+\usepackage{setspace}           % 行间距控制
+\usepackage{fontspec}           % 高级字体控制
+\usepackage{xeCJK}              % 中文字体支持
+\usepackage{ctex}               % 完整中文支持
+\usepackage{CJKutf8}            % UTF-8编码支持（备用）
+\usepackage{zhnumber}           % 中文数字转换
+
+% ======================
+% 数学相关包
+% ======================
+\usepackage{amsmath}            % 基础数学公式（矩阵、多行公式等）
+\usepackage{amssymb}            % 扩展数学符号
+\usepackage{amsthm}             % 定理环境定制
+\usepackage{mathtools}          % amsmath的增强版（矩阵、符号等）
+\usepackage{mathrsfs}           % 提供花体字母
+\usepackage{latexsym}           % 特殊数学符号
+\usepackage{stmaryrd}            % 额外数学符号
+
+% ======================
+% 图形与绘图
+% ======================
+\usepackage{graphicx}           % 图片插入（\includegraphics）
+\usepackage{tikz}               % 矢量绘图核心包
+\usepackage{tikz-cd}            % 交换图绘制（范畴论）
+%\usepackage{quiver}             
+
+% ======================
+% 参考文献与引用
+% ======================
+\usepackage[authoryear]{natbib} % 作者-年份引用格式
+\usepackage{etoolbox}           % 参考文献工具（定制bib样式）
+
+% ======================
+% 超链接与交互
+% ======================
+\usepackage{xcolor}             % 颜色支持（链接着色）
+\usepackage{hyperref}           % 超链接/书签（需最后加载）
+\hypersetup{                    % hyperref配置
+    colorlinks=true,            % 彩色链接而非方框
+    citecolor=green,            % 引用颜色
+    urlcolor=red,               % 外部URL颜色
+    bookmarksnumbered=true      % 书签显示章节编号
+}
+\usepackage{cleveref}           % 智能引用（\cref自动识别类型）
+
+% ======================
+% 列表与布局增强
+% ======================
+\usepackage{enumitem}           % 列表定制（间距、标签等）
+\usepackage{fancyhdr}           % 页眉页脚定制
+\usepackage{lmodern}            % 拉丁现代字体（矢量字体）
+
+% ======================
+% 其他工具
+% ======================
+\usepackage{pdfpages} 
+
+% 定理环境样式
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{示例}
+\newtheorem{remark}[theorem]{注记}
+
+\theoremstyle{remark}
+
+% 自定义命令
+\definecolor{arxivblue}{RGB}{0, 102, 204}
+\newcommand{\arxiv}[3]{\href{https://arxiv.org/abs/#1}{#1}, \textbf{\textcolor{arxivblue}{#2}}, #3}
+\newcommand{\AGnumber}{30}
+\newcommand{\RTQAnumber}{18}
+\newcommand{\NewestDate}{2026年10月11日}
+
+\newcommand{\todayarXiver}{} %今天的整理者！
+
+
+
+\begin{document}
+\begin{center}
+    \Huge\textbf{不漏arXiv：\NewestDate\footnote{感谢arXiv提供的服务.}\footnote{今天的整理者是\todayarXiver}\footnote{由于arXiv api的局限性, 实际上获取的是arXiv api给出的最近三天submit的所有论文, 和recent页面可能有一定的差异. 三个category中没有进行去重, 顺序也可能存在一定问题, 麻烦整理者自行增删.}} \\
+\end{center}
+
+\setcounter{section}{-1}
+
+\begin{center}
+    今日AG数量：\AGnumber
+    
+    今日RT \& QA数量：\RTQAnumber
+    
+\end{center}
+
+
+\section{精选}
+
+
+\section{AG}
+%AG begin
+\arxiv{2610.12384v1}{Local Constancy of the Betti Automorphic Category over the Moduli of Curves}{Joakim Færgeman, Marius Kjærsgaard}
+
+\arxiv{2610.12364v1}{The moduli space of curves of genus 16 is uniruled}{Gavril Farkas, Alessandro Verra}
+
+\arxiv{2610.12344v1}{Geometrically Abelian Sections on Higher-Dimensional Varieties}{Daebeom Choi}
+
+\arxiv{2610.12331v1}{Wave packets asymptotics in $κ$-minkowski space}{Adith A, A. Bhagwat}
+
+\arxiv{2610.12330v1}{Characteristic cycles and the Gevrey filtration of irregularity in hypergeometric families}{Sheng Tan}
+
+\arxiv{2610.12288v1}{Testing Algebraic Complete Intersections}{Alessandro Tamai}
+
+\arxiv{2610.12280v1}{Generalized linear cellular automata in groups and difference Galois theory II}{David Blázquez-Sanz, Mario Alejandro Vergara Tapiero}
+
+\arxiv{2610.12277v1}{Hyperkähler SYZ conjecture}{Philip Engel, Mirko Mauri}
+
+\arxiv{2610.12261v1}{Hyperquiver varieties}{Roger Bielawski}
+
+\arxiv{2610.12222v1}{On Igusa's conjectures for weighted homogeneous polynomials with isolated singularities}{Kien Huu Nguyen, Takehiko Yasuda}
+
+\arxiv{2610.12192v1}{Topological inequalities for conic-line arrangements with some prescribed singularities}{Marco Golla, Piotr Pokora}
+
+\arxiv{2610.12175v1}{Atiyah classes and ellipticity of Oka manifolds}{Yuta Kusakabe, Shin-ichi Matsumura}
+
+\arxiv{2610.12092v1}{Character variety of the five-punctured sphere and the determinantal quintic hypersurface}{Kazuhiro Hikami}
+
+\arxiv{2610.12091v1}{On the kernels of Lefschetz operators}{Jiajun Hu}
+
+\arxiv{2610.12080v1}{A uniform bound for the minimal degree of an isogeny between principally polarized superspecial abelian surfaces}{Lam L. Pham}
+
+\arxiv{2610.12078v1}{Linear syzygies and linear subspaces whose lines are multisecant}{Jong In Han, Sijong Kwak}
+
+\arxiv{2610.12071v1}{Rational curves on toroidal compactifications of Picard modular varieties}{Soheil Memarinasorkhabi, Sai-Kee Yeung}
+
+\arxiv{2610.12013v1}{Unipotent Selmer dimensions for CM curves via Iwasawa loci}{Ander Martin}
+
+\arxiv{2610.11925v1}{On Calabi-Yau varieties that are linear sections of Grassmannians of lines}{Michele Bolognesi, Ciro Ciliberto, Alessandro Verra}
+
+\arxiv{2610.11905v1}{Uniform Height Gaps in Arbitrary Characteristics}{Alice Lin, Frank Lu, Jit Wu Yap}
+
+\arxiv{2610.11864v1}{Largeness of the wild locus}{Katharina Hübner, Michael Temkin}
+
+\arxiv{2610.11802v1}{Loyalty of the affine line in motivic homotopy theory}{Viktor Burghardt}
+
+\arxiv{2610.11708v1}{Equivariant noncommutative crepant resolutions and $G$-maximal modifying modules}{Yuki Hirano}
+
+\arxiv{2610.11565v1}{Injectivity of specialization maps in critical cohomology}{Yalong Cao}
+
+\arxiv{2610.11545v1}{Continuity of the Julia sets in non-archimedean and hybrid settings}{Alexandre Roy}
+
+\arxiv{2610.11427v1}{Categorified Cluster Structures on Coulomb Branches of Certain Star-Shaped Quivers}{Tianle Liu}
+
+\arxiv{2610.11340v1}{Helly Numbers for Connected Reductive Groups and Splitting of Toric Principal Bundles}{Boris Tsvelikhovskiy}
+
+\arxiv{2610.11326v1}{Toric flatness I}{Rémi Lodh}
+
+\arxiv{2610.11109v1}{A Proof of Mongardi's Conjecture on Finite Symplectic Group Actions on Hyperkähler Manifolds of $K3^{[n]}$ Type}{Jie Fu, Shihao Wang, Zhiwei Zheng}
+
+\arxiv{2610.11032v1}{Frobenius splitting of valuation rings revisited}{Rankeya Datta, Karen E. Smith}
+
+%AG end
+
+\section{RT \& QA}
+%RT&QA begin
+\arxiv{2610.12384v1}{Local Constancy of the Betti Automorphic Category over the Moduli of Curves}{Joakim Færgeman, Marius Kjærsgaard}
+
+\arxiv{2610.12234v1}{Slightly improved zero-free half-planes for the quasi-Riemann hypothesis}{Baiying Liu}
+
+\arxiv{2610.12221v1}{Twisted Jacquet modules and induction from Speh representations}{Alan Xuelun Hou}
+
+\arxiv{2610.11800v1}{Sharp commutator bounds on complex simple Lie algebras: the Böttcher--Wenzel inequality and the comass of the Cartan $3$-form}{Daniel J. F. Fox}
+
+\arxiv{2610.11785v1}{Facets of nondegeneracy: central type factor groups, Heisenberg representations and Hadamard matrices}{Pierre Bieliavsky, Victor Gayral, Sergey Neshveyev 等}
+
+\arxiv{2610.11708v1}{Equivariant noncommutative crepant resolutions and $G$-maximal modifying modules}{Yuki Hirano}
+
+\arxiv{2610.11565v1}{Injectivity of specialization maps in critical cohomology}{Yalong Cao}
+
+\arxiv{2610.11427v1}{Categorified Cluster Structures on Coulomb Branches of Certain Star-Shaped Quivers}{Tianle Liu}
+
+\arxiv{2610.11406v1}{A Counterexample to Left-Right Symmetry for Diagonal Auslander-Regularity}{Zhenyu Wang, Zhaoyong Huang, Yu-Zhe Liu}
+
+\arxiv{2610.11276v1}{Reciprocity for projective and injective direct summands}{Shigeo Koshitani, Taro Sakurai}
+
+\arxiv{2610.11101v1}{Quantum super Schur--Weyl duality and character formulas for mirabolic Hecke algebras}{Naihuan Jing, Ning Liu}
+
+\arxiv{2610.12352v1}{The Colored Jones Function does not determine any colored Links--Gould polynomial}{Matthew Harper, Ben-Michael Kohli}
+
+\arxiv{2610.12326v1}{On the Nazarov-Sklyanin Lax operator for Macdonald functions}{Ryan Mickler}
+
+\arxiv{2610.12263v1}{The graph complex and the homology of the general linear groups revisited}{Peter Patzt, Thomas Willwacher}
+
+\arxiv{2610.12079v1}{Fiber product of condensable algebras and critical points of boundary phase transitions}{Hanlin Lin, Hao Zheng}
+
+\arxiv{2610.11785v1}{Facets of nondegeneracy: central type factor groups, Heisenberg representations and Hadamard matrices}{Pierre Bieliavsky, Victor Gayral, Sergey Neshveyev 等}
+
+\arxiv{2610.11652v1}{Triangular prism equations for near-group categories: algebraic solutions and a unitary conjecture}{Huixuan He, Zhengwei Liu, Fan Lu 等}
+
+\arxiv{2610.11101v1}{Quantum super Schur--Weyl duality and character formulas for mirabolic Hecke algebras}{Naihuan Jing, Ning Liu}
+
+%RT&QA end
+
+
+\end{document}
