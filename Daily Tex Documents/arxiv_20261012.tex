@@ -1,0 +1,178 @@
+\documentclass[9pt, a4paper]{article}
+% ======================
+% 基础文档设置与中文支持
+% ======================
+\usepackage{geometry}           % 页面布局控制（边距、纸张大小等）
+\geometry{scale=0.75}
+\usepackage{setspace}           % 行间距控制
+\usepackage{fontspec}           % 高级字体控制
+\usepackage{xeCJK}              % 中文字体支持
+\usepackage{ctex}               % 完整中文支持
+\usepackage{CJKutf8}            % UTF-8编码支持（备用）
+\usepackage{zhnumber}           % 中文数字转换
+
+% ======================
+% 数学相关包
+% ======================
+\usepackage{amsmath}            % 基础数学公式（矩阵、多行公式等）
+\usepackage{amssymb}            % 扩展数学符号
+\usepackage{amsthm}             % 定理环境定制
+\usepackage{mathtools}          % amsmath的增强版（矩阵、符号等）
+\usepackage{mathrsfs}           % 提供花体字母
+\usepackage{latexsym}           % 特殊数学符号
+\usepackage{stmaryrd}            % 额外数学符号
+
+% ======================
+% 图形与绘图
+% ======================
+\usepackage{graphicx}           % 图片插入（\includegraphics）
+\usepackage{tikz}               % 矢量绘图核心包
+\usepackage{tikz-cd}            % 交换图绘制（范畴论）
+%\usepackage{quiver}             
+
+% ======================
+% 参考文献与引用
+% ======================
+\usepackage[authoryear]{natbib} % 作者-年份引用格式
+\usepackage{etoolbox}           % 参考文献工具（定制bib样式）
+
+% ======================
+% 超链接与交互
+% ======================
+\usepackage{xcolor}             % 颜色支持（链接着色）
+\usepackage{hyperref}           % 超链接/书签（需最后加载）
+\hypersetup{                    % hyperref配置
+    colorlinks=true,            % 彩色链接而非方框
+    citecolor=green,            % 引用颜色
+    urlcolor=red,               % 外部URL颜色
+    bookmarksnumbered=true      % 书签显示章节编号
+}
+\usepackage{cleveref}           % 智能引用（\cref自动识别类型）
+
+% ======================
+% 列表与布局增强
+% ======================
+\usepackage{enumitem}           % 列表定制（间距、标签等）
+\usepackage{fancyhdr}           % 页眉页脚定制
+\usepackage{lmodern}            % 拉丁现代字体（矢量字体）
+
+% ======================
+% 其他工具
+% ======================
+\usepackage{pdfpages} 
+
+% 定理环境样式
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{示例}
+\newtheorem{remark}[theorem]{注记}
+
+\theoremstyle{remark}
+
+% 自定义命令
+\definecolor{arxivblue}{RGB}{0, 102, 204}
+\newcommand{\arxiv}[3]{\href{https://arxiv.org/abs/#1}{#1}, \textbf{\textcolor{arxivblue}{#2}}, #3}
+\newcommand{\AGnumber}{21}
+\newcommand{\RTQAnumber}{10}
+\newcommand{\NewestDate}{2026年10月12日}
+
+\newcommand{\todayarXiver}{} %今天的整理者！
+
+
+
+\begin{document}
+\begin{center}
+    \Huge\textbf{不漏arXiv：\NewestDate\footnote{感谢arXiv提供的服务.}\footnote{今天的整理者是\todayarXiver}\footnote{由于arXiv api的局限性, 实际上获取的是arXiv api给出的最近三天submit的所有论文, 和recent页面可能有一定的差异. 三个category中没有进行去重, 顺序也可能存在一定问题, 麻烦整理者自行增删.}} \\
+\end{center}
+
+\setcounter{section}{-1}
+
+\begin{center}
+    今日AG数量：\AGnumber
+    
+    今日RT \& QA数量：\RTQAnumber
+    
+\end{center}
+
+
+\section{精选}
+
+
+\section{AG}
+%AG begin
+\arxiv{2610.13939v1}{The Tate Conjecture for Ordinary Calabi-Yau Threefolds}{Lukas Brantner}
+
+\arxiv{2610.13850v1}{Weighted, GIT and Néron--Tate heights on genus-two moduli and Jacobians}{Sajad Salami}
+
+\arxiv{2610.13831v1}{Biholomorphic rigidity and symmetry breaking for domains with Bergman metric of constant positive holomorphic sectional curvature}{Gordon Heier, Ravi Mudaliar, Haotian Zuo}
+
+\arxiv{2610.13827v1}{Monodromy of Tate-Linear varieties}{Livia Grammatica}
+
+\arxiv{2610.13803v1}{The (right) homotopy between two A$_{\infty}$-morphisms}{Mattia Ornaghi}
+
+\arxiv{2610.13747v1}{Travel time tomography for elliptically anisotropic elastic planar media}{Joonas Ilmavirta, Teemu Saksala, Hjørdis Schlüter}
+
+\arxiv{2610.13667v1}{A discrete analogue of $\mathscr{N}=2$ super Weil-Petersson volumes}{Wasif Ahmed, Joydeep Naskar}
+
+\arxiv{2610.13581v1}{On the Cohomology Classes of Certain Eisenstein-Kronecker Forms}{Zhixuan Sheng, Jie Zhou}
+
+\arxiv{2610.13528v1}{Campana strong approximation on generalised Markoff surfaces}{Dasheng Wei}
+
+\arxiv{2610.13469v1}{Quillen's local parameter conjecture in dimension four}{Yunpeng Li}
+
+\arxiv{2610.13450v1}{A complex associated to a family of ideals and applications to subspace arrangements}{Aldo Conca, Manolis C. Tsakiris}
+
+\arxiv{2610.13331v1}{Gamma conjecture II and explicit Stokes data for a quadric projective bundle}{Xiaobin Li}
+
+\arxiv{2610.13291v1}{Geometry of some determinantal arrangements}{Marek Janasz}
+
+\arxiv{2610.13279v1}{Artin-Schreier curves of prescribed p-rank without extra automorphisms}{Saeed Tafazolian, Ahmad Kazemifard}
+
+\arxiv{2610.13209v1}{Open WDVV equations for non-commutative families of bounding cochains}{Elad Kosloff}
+
+\arxiv{2610.13192v1}{Classification of can-Var diagrams of mixed Hodge structures and monodromic mixed Hodge modules on $\mathbb{C}$}{Takahiro Saito}
+
+\arxiv{2610.13178v1}{Boundedness of polarized log Calabi-Yau fibrations}{Haoran Zhu}
+
+\arxiv{2610.13100v1}{Finiteness of planar central configurations of five bodies for all positive masses}{Tejasvi Singh Tomar}
+
+\arxiv{2610.13042v1}{Covering plane curves over finite fields with lines}{Shamil Asgarli, Sarthak Dassarma, Dragos Ghioca 等}
+
+\arxiv{2610.12918v1}{A Comparison Theorem for $p$-adic GKZ Hypergeometric $\mathcal D$-Modules and Complexes}{Chenhan Liu, Hao Zhang}
+
+\arxiv{2610.12854v1}{Normal bundles of hyperelliptic curves and uniform propagation of semistability}{Xuyan Liu}
+
+%AG end
+
+\section{RT \& QA}
+%RT&QA begin
+\arxiv{2610.13877v1}{On the saturability of $p$-adic Lie groups}{Casey Perdue}
+
+\arxiv{2610.13707v1}{A 9-dimensional nilpotent Lie algebra isomorphic to its complex conjugate admitting no real form}{Tom De Medts}
+
+\arxiv{2610.13646v1}{Actions of Fell bundles, II: tensor products and Fourier-Stieltjes algebras}{Erik Bédos, Roberto Conti}
+
+\arxiv{2610.13477v1}{Harmonic analysis and circuit approximation of Sobolev functions on quantum input spaces}{Philipp Schmocker}
+
+\arxiv{2610.13213v1}{Haar measure for totally positive split real semisimple quantum groups of classical type}{Kenny De Commer, Geoffrey Janssens, Wannes Malfait}
+
+\arxiv{2610.13203v1}{Higher mod $p$ Satake transforms: explicit formulas and images for $\mathrm{GL}_2$}{Hargun Bhatia, Yashi Jain, Casey Perdue 等}
+
+\arxiv{2610.13933v1}{The Haagerup VOA at $c=8$}{Andrew Riesen}
+
+\arxiv{2610.13709v1}{Dynamical Lie Algebras for Fixed-Gate Quantum Ansätze}{Orlane Zang, Daniel Juteau, Tony Quertier 等}
+
+\arxiv{2610.13213v1}{Haar measure for totally positive split real semisimple quantum groups of classical type}{Kenny De Commer, Geoffrey Janssens, Wannes Malfait}
+
+\arxiv{2610.13210v1}{Symmetries of colored Khovanov-Rozansky homology}{Alexis Guérin, Felix Roz}
+
+%RT&QA end
+
+
+\end{document}
