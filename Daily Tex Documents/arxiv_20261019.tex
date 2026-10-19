@@ -1,0 +1,186 @@
+\documentclass[9pt, a4paper]{article}
+% ======================
+% 基础文档设置与中文支持
+% ======================
+\usepackage{geometry}           % 页面布局控制（边距、纸张大小等）
+\geometry{scale=0.75}
+\usepackage{setspace}           % 行间距控制
+\usepackage{fontspec}           % 高级字体控制
+\usepackage{xeCJK}              % 中文字体支持
+\usepackage{ctex}               % 完整中文支持
+\usepackage{CJKutf8}            % UTF-8编码支持（备用）
+\usepackage{zhnumber}           % 中文数字转换
+
+% ======================
+% 数学相关包
+% ======================
+\usepackage{amsmath}            % 基础数学公式（矩阵、多行公式等）
+\usepackage{amssymb}            % 扩展数学符号
+\usepackage{amsthm}             % 定理环境定制
+\usepackage{mathtools}          % amsmath的增强版（矩阵、符号等）
+\usepackage{mathrsfs}           % 提供花体字母
+\usepackage{latexsym}           % 特殊数学符号
+\usepackage{stmaryrd}            % 额外数学符号
+
+% ======================
+% 图形与绘图
+% ======================
+\usepackage{graphicx}           % 图片插入（\includegraphics）
+\usepackage{tikz}               % 矢量绘图核心包
+\usepackage{tikz-cd}            % 交换图绘制（范畴论）
+%\usepackage{quiver}             
+
+% ======================
+% 参考文献与引用
+% ======================
+\usepackage[authoryear]{natbib} % 作者-年份引用格式
+\usepackage{etoolbox}           % 参考文献工具（定制bib样式）
+
+% ======================
+% 超链接与交互
+% ======================
+\usepackage{xcolor}             % 颜色支持（链接着色）
+\usepackage{hyperref}           % 超链接/书签（需最后加载）
+\hypersetup{                    % hyperref配置
+    colorlinks=true,            % 彩色链接而非方框
+    citecolor=green,            % 引用颜色
+    urlcolor=red,               % 外部URL颜色
+    bookmarksnumbered=true      % 书签显示章节编号
+}
+\usepackage{cleveref}           % 智能引用（\cref自动识别类型）
+
+% ======================
+% 列表与布局增强
+% ======================
+\usepackage{enumitem}           % 列表定制（间距、标签等）
+\usepackage{fancyhdr}           % 页眉页脚定制
+\usepackage{lmodern}            % 拉丁现代字体（矢量字体）
+
+% ======================
+% 其他工具
+% ======================
+\usepackage{pdfpages} 
+
+% 定理环境样式
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{示例}
+\newtheorem{remark}[theorem]{注记}
+
+\theoremstyle{remark}
+
+% 自定义命令
+\definecolor{arxivblue}{RGB}{0, 102, 204}
+\newcommand{\arxiv}[3]{\href{https://arxiv.org/abs/#1}{#1}, \textbf{\textcolor{arxivblue}{#2}}, #3}
+\newcommand{\AGnumber}{23}
+\newcommand{\RTQAnumber}{12}
+\newcommand{\NewestDate}{2026年10月19日}
+
+\newcommand{\todayarXiver}{} %今天的整理者！
+
+
+
+\begin{document}
+\begin{center}
+    \Huge\textbf{不漏arXiv：\NewestDate\footnote{感谢arXiv提供的服务.}\footnote{今天的整理者是\todayarXiver}\footnote{由于arXiv api的局限性, 实际上获取的是arXiv api给出的最近三天submit的所有论文, 和recent页面可能有一定的差异. 三个category中没有进行去重, 顺序也可能存在一定问题, 麻烦整理者自行增删.}} \\
+\end{center}
+
+\setcounter{section}{-1}
+
+\begin{center}
+    今日AG数量：\AGnumber
+    
+    今日RT \& QA数量：\RTQAnumber
+    
+\end{center}
+
+
+\section{精选}
+
+
+\section{AG}
+%AG begin
+\arxiv{2610.23846v1}{Identifiability from Moments in Independent Component Analysis Mixture Models}{Pardis Semnani, Konstantin Usevich, Elina Robeva}
+
+\arxiv{2610.23816v1}{Twisted $\mathbb{A}^1$-degrees of Wronski maps}{Thomas Brazelton, Jake Levinson}
+
+\arxiv{2610.23803v1}{Deligne--Faltings Logarithmic Derived Geometry with a View towards Logarithmic GLSM}{Felix Janda, Ruoxi Li}
+
+\arxiv{2610.23778v1}{Dg models for derived differential operators}{Jack Jeffries, Devlin Mallory, Claudia Miller 等}
+
+\arxiv{2610.23752v1}{Spectral networks, finite webs, and the $T_3$ cubic differential}{Omar Kidwai, Guillaume Tahar}
+
+\arxiv{2610.23711v1}{Finite Cyclic Fundamental Groups and Exotic Universal Covers from the Cartwright--Steger Surface}{Anar Akhmedov, B. Doug Park, Sümeyra Sakallı 等}
+
+\arxiv{2610.23689v1}{Local topological zeta functions of generic symmetric and catalecticant determinantal varieties}{An Khuong Doan}
+
+\arxiv{2610.23644v1}{A Topological Quantum Field Theory for Representation Varieties of Torus Links}{Enrique Aycart-Maldonado, Alejandro Calleja}
+
+\arxiv{2610.23516v1}{On the crystalline Artin--Mumford invariant}{Margherita Pagano, Domenico Valloni}
+
+\arxiv{2610.23505v1}{mixed Hodge structures on the strictly upper triangular Lie algebras}{Taito Shimoji}
+
+\arxiv{2610.23485v1}{Lefschetz Pencils on surfaces and an application to Seshadri constants}{Krishna Hanumanthu, A. J. Parameswaran}
+
+\arxiv{2610.23457v1}{Smooth Limits of Stable Manifolds}{Mu-Lin Li}
+
+\arxiv{2610.23430v1}{Brauer-Manin obstruction for symmetric powers}{Yang Cao, Lin Zhou}
+
+\arxiv{2610.23376v1}{Ambient Chow Rings of Debarre--Voisin Fourfolds and the Beauville--Voisin Conjecture}{Ryo Akazawa}
+
+\arxiv{2610.23320v1}{Folding to the Bessel-Clifford system, and Equivariant Topological Recursion}{Mohamad Alameddine, Alexander Hock}
+
+\arxiv{2610.23228v1}{Weighted configurations and the nonexistence of arithmetic ball quotient compactifications}{Ryunosuke Nakano, Hisato Matsukawa}
+
+\arxiv{2610.23227v1}{Seven ordered points and the nonexistence of arithmetic ball quotient compactifications}{Ryunosuke Nakano, Hisato Matsukawa}
+
+\arxiv{2610.23171v1}{Point Modules of Non-Connected Graded Algebras}{Thomas Lamkin}
+
+\arxiv{2610.23024v1}{The geometric exceptional set for Fano threefolds}{Runxuan Gao}
+
+\arxiv{2610.23004v1}{A cubulation of the associahedron using a torus-equivariant degeneration of the brick variety}{Raj Gandhi, Gabe Udell}
+
+\arxiv{2610.22926v1}{Approximation and extension theorems for normal affine toric varieties}{Ryo Uchimoto}
+
+\arxiv{2610.22809v1}{Low-weight compactly supported cohomology of $\mathcal M_{g,n}^{ct}$ and the extended Torelli morphism}{Amy Bradford}
+
+\arxiv{2610.22772v1}{Semialgebraic ${C^m}$ solutions to a univariate system of linear inequalities with Nash forcing}{Fushuai Jiang, Garving K. Luli}
+
+%AG end
+
+\section{RT \& QA}
+%RT&QA begin
+\arxiv{2610.23737v1}{Plancherel Decompositions and Distinctions for $\mathrm{Sp}_{2n}\backslash \mathrm{Gl}_{2n+1}$ and $P(\mathrm{Sp}_{2n})\backslash \mathrm{Gl}_{2n}$}{Sagnik Mukherjee}
+
+\arxiv{2610.23592v1}{Locally Gorenstein algebras, a generalization of Gorenstein algebras}{Leonardo Alarcon, María Andrea Gatica, Marcelo Lanzilotta}
+
+\arxiv{2610.23572v1}{Phases in the cyclic quantum dilogarithm: correction to "Cyclic quantum Teichmüller theory"}{Tsukasa Ishibashi}
+
+\arxiv{2610.23450v1}{Trilinear Forms for ${\rm GL}_2(\mathbb{F}_q)$ via conjugacy classes}{Ankita Parashar, Shiv Prakash Patel}
+
+\arxiv{2610.23169v1}{Whittaker Functionals for Exceptional Representations}{Sihan Li}
+
+\arxiv{2610.23055v1}{Typical representations of admissible type I algebraic supergroups}{Taiki Shibata}
+
+\arxiv{2610.23000v1}{Classification of real Lie algebras of dimension one, two and three}{Mehdi Nadjafikhah}
+
+\arxiv{2610.23719v1}{Confluence relations, Hoffman basis over \mathbb{Z}_{(2)}, and the Deligne--Drinfeld conjecture}{Minoru Hirose}
+
+\arxiv{2610.23572v1}{Phases in the cyclic quantum dilogarithm: correction to "Cyclic quantum Teichmüller theory"}{Tsukasa Ishibashi}
+
+\arxiv{2610.23321v1}{Anomalies for compact simple Lie groups via $G$-kernels for loop group nets}{Marcel Bischoff, Pradyut Karmakar}
+
+\arxiv{2610.23236v1}{On the complexification of $ q $-deformations of compact semisimple Lie groups}{Heon Lee, Christian Voigt}
+
+\arxiv{2610.23055v1}{Typical representations of admissible type I algebraic supergroups}{Taiki Shibata}
+
+%RT&QA end
+
+
+\end{document}
