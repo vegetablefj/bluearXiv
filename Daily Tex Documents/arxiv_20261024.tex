@@ -1,0 +1,292 @@
+\documentclass[9pt, a4paper]{article}
+% ======================
+% 基础文档设置与中文支持
+% ======================
+\usepackage{geometry}           % 页面布局控制（边距、纸张大小等）
+\geometry{scale=0.75}
+\usepackage{setspace}           % 行间距控制
+\usepackage{fontspec}           % 高级字体控制
+\usepackage{xeCJK}              % 中文字体支持
+\usepackage{ctex}               % 完整中文支持
+\usepackage{CJKutf8}            % UTF-8编码支持（备用）
+\usepackage{zhnumber}           % 中文数字转换
+
+% ======================
+% 数学相关包
+% ======================
+\usepackage{amsmath}            % 基础数学公式（矩阵、多行公式等）
+\usepackage{amssymb}            % 扩展数学符号
+\usepackage{amsthm}             % 定理环境定制
+\usepackage{mathtools}          % amsmath的增强版（矩阵、符号等）
+\usepackage{mathrsfs}           % 提供花体字母
+\usepackage{latexsym}           % 特殊数学符号
+\usepackage{stmaryrd}            % 额外数学符号
+
+% ======================
+% 图形与绘图
+% ======================
+\usepackage{graphicx}           % 图片插入（\includegraphics）
+\usepackage{tikz}               % 矢量绘图核心包
+\usepackage{tikz-cd}            % 交换图绘制（范畴论）
+%\usepackage{quiver}             
+
+% ======================
+% 参考文献与引用
+% ======================
+\usepackage[authoryear]{natbib} % 作者-年份引用格式
+\usepackage{etoolbox}           % 参考文献工具（定制bib样式）
+
+% ======================
+% 超链接与交互
+% ======================
+\usepackage{xcolor}             % 颜色支持（链接着色）
+\usepackage{hyperref}           % 超链接/书签（需最后加载）
+\hypersetup{                    % hyperref配置
+    colorlinks=true,            % 彩色链接而非方框
+    citecolor=green,            % 引用颜色
+    urlcolor=red,               % 外部URL颜色
+    bookmarksnumbered=true      % 书签显示章节编号
+}
+\usepackage{cleveref}           % 智能引用（\cref自动识别类型）
+
+% ======================
+% 列表与布局增强
+% ======================
+\usepackage{enumitem}           % 列表定制（间距、标签等）
+\usepackage{fancyhdr}           % 页眉页脚定制
+\usepackage{lmodern}            % 拉丁现代字体（矢量字体）
+
+% ======================
+% 其他工具
+% ======================
+\usepackage{pdfpages} 
+
+% 定理环境样式
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{示例}
+\newtheorem{remark}[theorem]{注记}
+
+\theoremstyle{remark}
+
+% 自定义命令
+\definecolor{arxivblue}{RGB}{0, 102, 204}
+\newcommand{\arxiv}[3]{\href{https://arxiv.org/abs/#1}{#1}, \textbf{\textcolor{arxivblue}{#2}}, #3}
+\newcommand{\AGnumber}{49}
+\newcommand{\RTQAnumber}{39}
+\newcommand{\NewestDate}{2026年10月24日}
+
+\newcommand{\todayarXiver}{} %今天的整理者！
+
+
+
+\begin{document}
+\begin{center}
+    \Huge\textbf{不漏arXiv：\NewestDate\footnote{感谢arXiv提供的服务.}\footnote{今天的整理者是\todayarXiver}\footnote{由于arXiv api的局限性, 实际上获取的是arXiv api给出的最近三天submit的所有论文, 和recent页面可能有一定的差异. 三个category中没有进行去重, 顺序也可能存在一定问题, 麻烦整理者自行增删.}} \\
+\end{center}
+
+\setcounter{section}{-1}
+
+\begin{center}
+    今日AG数量：\AGnumber
+    
+    今日RT \& QA数量：\RTQAnumber
+    
+\end{center}
+
+
+\section{精选}
+
+
+\section{AG}
+%AG begin
+\arxiv{2610.31628v1}{Almost simple subgroups of the space Cremona group}{Sebastián Fuentes}
+
+\arxiv{2610.31619v1}{Leafrians, Poisson structures, and Frobenius splittings on moduli spaces}{Jun Peng}
+
+\arxiv{2610.31607v1}{Quantum K-structure constants and cylindric Grothendieck polynomials for Grassmannians}{Vassily Gorbounov, Christian Korff, Leonardo C. Mihalcea}
+
+\arxiv{2610.31556v1}{The generic splitting type of the logarithmic bundle of an arrangement of at most sixteen lines is combinatorial}{Cristian Anghel, Rares Stan}
+
+\arxiv{2610.31533v1}{Triple Quantum Schubert Calculus}{Matthew J. Samuel}
+
+\arxiv{2610.31497v1}{A semiampleness result for hyperkähler fourfolds and smoothings of Lagrangian subvarieties}{Andreas Höring, Vladimir Lazić, Christian Lehn}
+
+\arxiv{2610.31442v1}{Local heights for nef toric compactified divisors}{Clara Otte}
+
+\arxiv{2610.31411v1}{The center is the formal internal automorphism group}{Sonja Farr}
+
+\arxiv{2610.31399v1}{An asymptotic $Γ$-BMT inequality}{Nick Rekuski}
+
+\arxiv{2610.31379v1}{The Penrose Correspondence over a Non-Archimedean Field}{Alberto Verjovsky}
+
+\arxiv{2610.31289v1}{Cohomology of integral structure sheaves for open varieties}{Xinyu Shao}
+
+\arxiv{2610.31265v1}{Log blow-ups and global resolutions in rigid geometry}{Xinyu Shao}
+
+\arxiv{2610.31250v1}{Three-dimensional noncommutative Fano minifolds}{Konstantin Loginov, Dmitri Orlov}
+
+\arxiv{2610.31233v1}{Positivity of supercritical LYZ pairs}{Bowen Liu, Mao Sheng, Shing-Tung Yau}
+
+\arxiv{2610.31150v1}{Gamma conjectures for Milnor hypersurfaces}{Jianxun Hu, Hua-Zhong Ke, Changzheng Li 等}
+
+\arxiv{2610.31079v1}{The taming of 3-fold flops}{Michael Wemyss}
+
+\arxiv{2610.31073v1}{The classification of smooth 3-fold flops}{Gavin Brown, Michael Wemyss}
+
+\arxiv{2610.30992v1}{Third-Order Weierstrass Points on Plane Quartics}{Ewelina Nawara}
+
+\arxiv{2610.30985v1}{Uniformity of the minimal exponent on the GIT boundary of projective hypersurfaces}{Yasutaka Shibata}
+
+\arxiv{2610.30976v1}{Rigidity, flexibility, and a sign error}{Yanki Lekili, Nick Sheridan}
+
+\arxiv{2610.30962v1}{Obstructions to deforming space curves lying on a complete intersection of quadrics}{Hirokazu Nasu}
+
+\arxiv{2610.30762v1}{Analytification and tropicalization via hyperfields and definable types}{Pablo Cubides Kovacsics, Mariana Vicaría, Jinhe Ye}
+
+\arxiv{2610.30703v1}{Aspects of quadratic Chabauty via modular forms}{Marius Leonhardt, Isabel Rendell}
+
+\arxiv{2610.30608v1}{The dual complex and RC-invariant functors}{Andrew Burke}
+
+\arxiv{2610.30574v1}{Asymptotics of local height pairing without Hodge conjecture}{Yuta Nakayama}
+
+\arxiv{2610.30395v1}{The symplectic leaves of the affine Poisson $C^\infty$-scheme associated with a singular subalgebroid}{Ruben Louis}
+
+\arxiv{2610.30376v1}{Isogenies of Oriented Elliptic Curves}{Doron Grossman-Naples}
+
+\arxiv{2610.30366v1}{Relative Hitchin fibrations and endoscopy for Unitary Friedberg--Jacquet varieties}{Thomas Hameister, Spencer Leslie}
+
+\arxiv{2610.30288v1}{Quantum field theory and four-manifolds: Perspectives from physics and geometry}{Niklas Garner, Martijn Kool, Jan Manschot 等}
+
+\arxiv{2610.30274v1}{Denominators of Hodge integrals and Minkowski numbers}{Daniel Holmes}
+
+\arxiv{2610.30069v1}{Alternative moduli of twisted curves}{Daniel Halpern-Leistner, Andres Fernandez Herrero, Giovanni Inchiostro 等}
+
+\arxiv{2610.30065v1}{Reflection functors for non-simply-laced quiver varieties}{Andrei Neguţ}
+
+\arxiv{2610.30050v1}{On OpenAI's proof of the Nagata conjecture}{Jenia Tevelev}
+
+\arxiv{2610.30027v1}{The recent counterexamples to the Eisenbud-Schreyer-Weyman Ulrich problem (2003) and to Hochster's small Cohen-Macaulay conjecture (1973): a survey, with a generalization to arbitrary dimension}{Cristian Anghel}
+
+\arxiv{2610.30020v1}{On the gap of thresholds}{Yang He, Vyacheslav V. Shokurov}
+
+\arxiv{2610.29977v1}{Lax descent and foliated Verdier duality}{Tobias Dyckerhoff, Till Heine, Simon Schneider 等}
+
+\arxiv{2610.29970v1}{Mackey formulas for smooth stacks}{Chenjing Bu, Lucien Hennecart}
+
+\arxiv{2610.29944v1}{Germwise singular Fourier--Mukai partnerships}{Pat Lank}
+
+\arxiv{2610.29912v1}{Derived categories of threefolds near the Noether line}{Jungkai Alfred Chen, Pedro Núñez}
+
+\arxiv{2610.29889v1}{Nashtopes and their A-discriminants}{Elke Neuhaus, Irem Portakal, Luca Sodomaco 等}
+
+\arxiv{2610.29849v1}{The Kemper--Malle conjecture and isolated linear quotient singularities}{Yang Chen}
+
+\arxiv{2610.29835v1}{Linear Complementary Pairs of MDS Codes from Elliptic Curves}{Adler Marques}
+
+\arxiv{2610.29808v1}{Topological degree of fewnomial maps}{Frédéric Bihan}
+
+\arxiv{2610.29698v1}{Moduli spaces of logarithmic connections associated with difference Painlevé equations of type $E^{(1)}_n$}{Takafumi Matsumoto}
+
+\arxiv{2610.29526v1}{Geometric knowledge spaces, Attention pairing and Architectures}{Shang Xu}
+
+\arxiv{2610.29263v1}{Ramification and Finiteness of Equivariant Minimal Surfaces}{Indranil Biswas, Satyajit Guin, Pradip Kumar}
+
+\arxiv{2610.29211v1}{On the gradient conjecture at infinity: Finite spherical length for gradient trajectories of definable potentials}{Thang Do, Arnulf Jentzen, Benno Kuckuck}
+
+\arxiv{2610.29204v1}{The Logarithmic A-Discriminant}{Madeleine Goertz, Bernd Sturmfels, Simon Telen}
+
+\arxiv{2610.29065v1}{Pontryagin-Thom, $π_0$ of the motivic sphere, and principal quadratic divisors}{Kyle Ormsby}
+
+%AG end
+
+\section{RT \& QA}
+%RT&QA begin
+\arxiv{2610.31655v1}{Plabic promotions beyond cluster: quantum cluster structures and the dual canonical basis}{Jian-Rong Li, Michael Oren Perlstein, Ran J. Tessler}
+
+\arxiv{2610.31615v1}{Langlands-Shahidi gamma factors and local transfer in families}{Johannes Girsch, Robert Kurinczuk}
+
+\arxiv{2610.31079v1}{The taming of 3-fold flops}{Michael Wemyss}
+
+\arxiv{2610.31073v1}{The classification of smooth 3-fold flops}{Gavin Brown, Michael Wemyss}
+
+\arxiv{2610.31018v1}{Exact Archimedean Flicker--Rallis Periods on Cohomological Minimal $K$-Types}{Zheng Wang}
+
+\arxiv{2610.30767v1}{Weyl chambers, asymptotic expansions, and blowup analysis of explicit Toda solutions}{Zhaohu Nie}
+
+\arxiv{2610.30543v1}{Rigid and $τ$-locally free modules via Taft algebras}{Edmund Heng, Calvin Pfeifer}
+
+\arxiv{2610.30521v1}{Drinfeld presentation of affine iquantum groups via iHopf algebras}{Ming Lu, Xiaolong Pan}
+
+\arxiv{2610.30479v1}{$\SL_3$ dual pairs}{Petar Bakić, Wee Teck Gan, Gordan Savin}
+
+\arxiv{2610.30304v1}{On Borodin-Gorin presentation of Heckman-Opdam $\mathfrak{gl}_n$ hypergeometric function}{L. Cherepanov, S. Khoroshkin}
+
+\arxiv{2610.30065v1}{Reflection functors for non-simply-laced quiver varieties}{Andrei Neguţ}
+
+\arxiv{2610.30054v1}{Multiplying matrices via polynomials: exposition and barriers}{Alimzhan Amanov, Maxim van den Berg, Jeroen Zuiddam}
+
+\arxiv{2610.29977v1}{Lax descent and foliated Verdier duality}{Tobias Dyckerhoff, Till Heine, Simon Schneider 等}
+
+\arxiv{2610.29976v1}{Characters and Polynomiality for Maximal Parabolic Unipotent Radicals in Finite Classical Groups}{Qingchun Hao, Yang Yang}
+
+\arxiv{2610.29970v1}{Mackey formulas for smooth stacks}{Chenjing Bu, Lucien Hennecart}
+
+\arxiv{2610.29878v1}{On unitary vertex operator algebras}{Victor G. Kac, Pierluigi Möseneder Frajria, Paolo Papi}
+
+\arxiv{2610.29750v1}{On Lusztig Sheaves for Tame Quivers}{Yumeng Wu, Jie Xiao}
+
+\arxiv{2610.29748v2}{No braiding for quantum sl2 reps - A short proof}{Liao Wang, Zbigniew Wojciechowski}
+
+\arxiv{2610.29672v1}{Restriction of $p'$-degree characters, fields of values, and relative normal complements}{David Cabrera-Berenguer}
+
+\arxiv{2610.29629v1}{Homological branching laws for $p$-adic and mod $p$ representations of ${\rm GL}_2$ over a $p$-adic field}{Yang Chen, Haoran Wang}
+
+\arxiv{2610.29483v1}{Local Gan-Gross-Prasad conjecture for unitary groups: Trace formula approach for epsilon dichotomy}{Cheng Chen, Xiaowei Li, Bushi Ren}
+
+\arxiv{2610.29480v1}{Revisiting the infinite Galois correspondence via group representations}{Zhe Chen, Enxin Wu}
+
+\arxiv{2610.29471v1}{Enhanced Langlands Parameters of Regular Principal Series}{Haoming Li, Xiaohang Yang, Jizhi Zhang 等}
+
+\arxiv{2610.29403v1}{Frobenius forms and semisimplicity of cyclotomic quiver Hecke superalgebras}{Shuo Li, Lei Shi}
+
+\arxiv{2610.29051v1}{Ramified convolution and monodromy bases for symmetrizable Kac--Moody algebras}{Jiarui Fei}
+
+\arxiv{2610.31655v1}{Plabic promotions beyond cluster: quantum cluster structures and the dual canonical basis}{Jian-Rong Li, Michael Oren Perlstein, Ran J. Tessler}
+
+\arxiv{2610.30849v1}{Surface Defects in the $\mathcal{N}=2$ Lens Space Index and Elliptic Integrability}{Masahito Yamazaki}
+
+\arxiv{2610.30845v1}{Bipartite solutions of the set-theoretic Yang--Baxer equation}{Gigel Militaru}
+
+\arxiv{2610.30720v1}{On adjoint double shuffle relations and adjoint reduction relations}{Takumi Anzawa}
+
+\arxiv{2610.30543v1}{Rigid and $τ$-locally free modules via Taft algebras}{Edmund Heng, Calvin Pfeifer}
+
+\arxiv{2610.30521v1}{Drinfeld presentation of affine iquantum groups via iHopf algebras}{Ming Lu, Xiaolong Pan}
+
+\arxiv{2610.30288v1}{Quantum field theory and four-manifolds: Perspectives from physics and geometry}{Niklas Garner, Martijn Kool, Jan Manschot 等}
+
+\arxiv{2610.30081v1}{AnyonWiki.org}{Colleen Delaney, Ralph Razzouk, Joost Slingerland 等}
+
+\arxiv{2610.29948v1}{Twisting of affine algebraic groups, III}{Shlomo Gelaki}
+
+\arxiv{2610.29750v1}{On Lusztig Sheaves for Tame Quivers}{Yumeng Wu, Jie Xiao}
+
+\arxiv{2610.29748v2}{No braiding for quantum sl2 reps - A short proof}{Liao Wang, Zbigniew Wojciechowski}
+
+\arxiv{2610.29619v1}{Extending Doi--Takeuchi correspondence to bimodules and noncommutative covers}{Zoran Škoda}
+
+\arxiv{2610.30192v1}{Alexander Torsion and Floer Comparisons in the BV-BFV Formalism}{Nima Moshayedi}
+
+\arxiv{2610.29130v1}{$G$-crossed braided tensor categories of twisted modules}{Shun Xu}
+
+%RT&QA end
+
+
+\end{document}
