@@ -1,0 +1,230 @@
+\documentclass[9pt, a4paper]{article}
+% ======================
+% 基础文档设置与中文支持
+% ======================
+\usepackage{geometry}           % 页面布局控制（边距、纸张大小等）
+\geometry{scale=0.75}
+\usepackage{setspace}           % 行间距控制
+\usepackage{fontspec}           % 高级字体控制
+\usepackage{xeCJK}              % 中文字体支持
+\usepackage{ctex}               % 完整中文支持
+\usepackage{CJKutf8}            % UTF-8编码支持（备用）
+\usepackage{zhnumber}           % 中文数字转换
+
+% ======================
+% 数学相关包
+% ======================
+\usepackage{amsmath}            % 基础数学公式（矩阵、多行公式等）
+\usepackage{amssymb}            % 扩展数学符号
+\usepackage{amsthm}             % 定理环境定制
+\usepackage{mathtools}          % amsmath的增强版（矩阵、符号等）
+\usepackage{mathrsfs}           % 提供花体字母
+\usepackage{latexsym}           % 特殊数学符号
+\usepackage{stmaryrd}            % 额外数学符号
+
+% ======================
+% 图形与绘图
+% ======================
+\usepackage{graphicx}           % 图片插入（\includegraphics）
+\usepackage{tikz}               % 矢量绘图核心包
+\usepackage{tikz-cd}            % 交换图绘制（范畴论）
+%\usepackage{quiver}             
+
+% ======================
+% 参考文献与引用
+% ======================
+\usepackage[authoryear]{natbib} % 作者-年份引用格式
+\usepackage{etoolbox}           % 参考文献工具（定制bib样式）
+
+% ======================
+% 超链接与交互
+% ======================
+\usepackage{xcolor}             % 颜色支持（链接着色）
+\usepackage{hyperref}           % 超链接/书签（需最后加载）
+\hypersetup{                    % hyperref配置
+    colorlinks=true,            % 彩色链接而非方框
+    citecolor=green,            % 引用颜色
+    urlcolor=red,               % 外部URL颜色
+    bookmarksnumbered=true      % 书签显示章节编号
+}
+\usepackage{cleveref}           % 智能引用（\cref自动识别类型）
+
+% ======================
+% 列表与布局增强
+% ======================
+\usepackage{enumitem}           % 列表定制（间距、标签等）
+\usepackage{fancyhdr}           % 页眉页脚定制
+\usepackage{lmodern}            % 拉丁现代字体（矢量字体）
+
+% ======================
+% 其他工具
+% ======================
+\usepackage{pdfpages} 
+
+% 定理环境样式
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{示例}
+\newtheorem{remark}[theorem]{注记}
+
+\theoremstyle{remark}
+
+% 自定义命令
+\definecolor{arxivblue}{RGB}{0, 102, 204}
+\newcommand{\arxiv}[3]{\href{https://arxiv.org/abs/#1}{#1}, \textbf{\textcolor{arxivblue}{#2}}, #3}
+\newcommand{\AGnumber}{30}
+\newcommand{\RTQAnumber}{27}
+\newcommand{\NewestDate}{2026年11月1日}
+
+\newcommand{\todayarXiver}{} %今天的整理者！
+
+
+
+\begin{document}
+\begin{center}
+    \Huge\textbf{不漏arXiv：\NewestDate\footnote{感谢arXiv提供的服务.}\footnote{今天的整理者是\todayarXiver}\footnote{由于arXiv api的局限性, 实际上获取的是arXiv api给出的最近三天submit的所有论文, 和recent页面可能有一定的差异. 三个category中没有进行去重, 顺序也可能存在一定问题, 麻烦整理者自行增删.}} \\
+\end{center}
+
+\setcounter{section}{-1}
+
+\begin{center}
+    今日AG数量：\AGnumber
+    
+    今日RT \& QA数量：\RTQAnumber
+    
+\end{center}
+
+
+\section{精选}
+
+
+\section{AG}
+%AG begin
+\arxiv{2610.40639v1}{Multicomplexes in Action: Strong Formality of Compact Hyperkähler Manifolds}{Antonio Pio Contrò}
+
+\arxiv{2610.40622v1}{The Number of Tropical Order Types and Coherent Matching Fields}{Xavier Allamigeon, Yiyuan Chen, Stéphane Gaubert 等}
+
+\arxiv{2610.40602v1}{Permutation twisted cohomology, reduced and immersed}{Juan Omar Gómez, Sam K. Miller}
+
+\arxiv{2610.40583v1}{Asymptotic GIT-stability of KSB-stable varieties}{Sándor J Kovács, Behrouz Taji}
+
+\arxiv{2610.40475v1}{Finite-rank rigidity and Nash-curve discreteness for correlation potentials}{Josiah Park}
+
+\arxiv{2610.40392v1}{A dynamical approach to Frobenius splitting}{Alapan Mukhopadhyay, Ilya Smirnov}
+
+\arxiv{2610.40352v1}{Moduli space of irregular singular $λ$-connections and the relative symplectic form}{Michi-aki Inaba, Arata Komyo}
+
+\arxiv{2610.40336v1}{Degeneration of (-1)-shifted symplectic stacks and categorification of Donaldson-Thomas invariants}{Artan Sheshmani}
+
+\arxiv{2610.40335v1}{Galois module structure of Deligne--Lusztig varieties for $\mathrm{GL}_3$}{Adithya Sathyanarayana}
+
+\arxiv{2610.40200v1}{The $6\frac{1}{2}$-functor formalism of Cartier modules}{Klaus Mattis, Timo Weiß}
+
+\arxiv{2610.40136v1}{The Kodaira dimension and minimal models of $\mathcal{A}_6$}{Haowu Wang}
+
+\arxiv{2610.40097v1}{Holomorphic 1-forms without zeros on Kähler manifolds}{Simon Pietig}
+
+\arxiv{2610.40074v1}{Harmonically lifting linear series from curves to K3 surfaces}{Richard Haburcak}
+
+\arxiv{2610.40035v1}{Degenerate complex structures on surfaces and stability conditions}{Antonios-Alexandros Robotis, Nicolás Vilches}
+
+\arxiv{2610.40028v1}{On Terao's conjecture for at most nine planes}{Bartosz Jarosławski}
+
+\arxiv{2610.39996v1}{A Yau-Tian-Donaldson correspondence for degenerations}{Gabriel Frey}
+
+\arxiv{2610.39945v1}{Compatibility of Perverse Truncation of Ngô Fibrations}{Bin Wang, Shihao Wang, Chenglong Yu}
+
+\arxiv{2610.39838v1}{The Kawatani--Okawa conjecture in dimensions three and four}{Dongjian Wu, Nantao Zhang}
+
+\arxiv{2610.39799v1}{Solid Arithmetic D-modules}{Kolar David}
+
+\arxiv{2610.39767v1}{Formality transmission}{Coline Emprin}
+
+\arxiv{2610.39627v1}{Automorphism groups of smooth quartic threefolds}{Zigang Zhu}
+
+\arxiv{2610.39583v1}{On equivariant affineness in elliptic cohomology}{Jack Morgan Davies, Sil Linskens, Leonard Tokic}
+
+\arxiv{2610.39498v1}{Poincaré series of degree-two Chow varieties}{Youming Chen, Wenchuan Hu, Deyuan Ma}
+
+\arxiv{2610.39462v1}{Balancing tautological intersection numbers}{Kefeng Liu, Hao Xu}
+
+\arxiv{2610.39368v1}{Bloch's conjecture for (anti-)symplectic automorphisms of K3 surfaces}{Zhiyuan Li}
+
+\arxiv{2610.39364v1}{A Uniform Upper Bound on the Length of MDS Codes from Genus-Two Curves}{Haojie Chen}
+
+\arxiv{2610.39336v1}{Point Corrections and Wall-Crossing Geometry on the Quintic del Pezzo Threefold}{Zheyuan Fu}
+
+\arxiv{2610.39284v1}{Generalized Iskovskikh surfaces and unirationality of del Pezzo surfaces of degree $2$}{Runxuan Gao}
+
+\arxiv{2610.39127v1}{The inverse local-relative correspondence and the Nekrasov--Shatashvili vanishing blowup equation}{Jianjun Fu, Shuai Guo, Qingsheng Zhang}
+
+\arxiv{2610.39102v1}{Logarithmic transformations on the six-sphere}{Jeff Viaclovsky}
+
+%AG end
+
+\section{RT \& QA}
+%RT&QA begin
+\arxiv{2610.40602v1}{Permutation twisted cohomology, reduced and immersed}{Juan Omar Gómez, Sam K. Miller}
+
+\arxiv{2610.40335v1}{Galois module structure of Deligne--Lusztig varieties for $\mathrm{GL}_3$}{Adithya Sathyanarayana}
+
+\arxiv{2610.40261v1}{An Arithmetic Property of Intertwining Operators for Real Reductive Groups}{A. Raghuram, Xin Zou}
+
+\arxiv{2610.40228v1}{On stable twist 2-groups of quasi-Hopf algebras}{Siu-Hung Ng, Xingting Wang}
+
+\arxiv{2610.40102v1}{Induced representations from the Heisenberg parabolic subgroup of $SL(n+2,\mathbb{R})$}{Robin van Haastrecht}
+
+\arxiv{2610.40099v1}{Harmonic Analysis on $p$-adic Unipotent Groups}{Khemais Maktouf}
+
+\arxiv{2610.40058v1}{Quantum cluster structures on bosonic extensions}{Yingjin Bi}
+
+\arxiv{2610.40034v1}{Quasimodularity of $q$-series associated to root lattices}{Antun Milas, Jan-Willem M. van Ittersum}
+
+\arxiv{2610.40021v1}{Parahoric Spherical Whittaker Functions}{Markos Karameris}
+
+\arxiv{2610.39805v1}{Standardly stratified structures from tilting modules}{Mayu Tsukamoto}
+
+\arxiv{2610.39672v1}{Syzygy-Quiver Formulas and Finitistic Dimensions of Special Biserial Algebras}{Shantanu Sardar}
+
+\arxiv{2610.39589v1}{Finite-dimensional irreducible representations of Yangians}{Mikhail Gradov, Aleksei Ilin}
+
+\arxiv{2610.39456v1}{Affinizations and braided module categories}{Hadi Salmasian, Alistair Savage, Yaolong Shen}
+
+\arxiv{2610.39184v1}{Gray $\mathcal{A}$-metrics on nilpotent Lie groups and the quasicentroid condition}{Edison Alberto Fernández-Culma}
+
+\arxiv{2610.40590v1}{An Adian-Rabin theorem for quantum automorphism groups of graphs}{Josse van Dobben de Bruyn, William Slofstra}
+
+\arxiv{2610.40498v1}{Dihedral pointed fusion categories: diagrammatics, 3-cocycle representatives, and planar algebras}{Agustina Czenky, Melody Molander}
+
+\arxiv{2610.40235v1}{Three-dimensional QCA that are not stably circuits}{Bowen Yang}
+
+\arxiv{2610.40228v1}{On stable twist 2-groups of quasi-Hopf algebras}{Siu-Hung Ng, Xingting Wang}
+
+\arxiv{2610.40076v1}{A Dolbeault complex for the contact quantised flag manifolds of type $\mathrm{C}_{2}$ and $\mathrm{D}_{4}$}{Antonio Del Donno}
+
+\arxiv{2610.40058v1}{Quantum cluster structures on bosonic extensions}{Yingjin Bi}
+
+\arxiv{2610.40041v1}{G-equivariant Alterfold TQFT in any dimension}{Zixuan Feng, Zhengwei Liu}
+
+\arxiv{2610.39767v1}{Formality transmission}{Coline Emprin}
+
+\arxiv{2610.39589v1}{Finite-dimensional irreducible representations of Yangians}{Mikhail Gradov, Aleksei Ilin}
+
+\arxiv{2610.39456v1}{Affinizations and braided module categories}{Hadi Salmasian, Alistair Savage, Yaolong Shen}
+
+\arxiv{2610.39366v1}{Graded Automorphism of Multiparameter Quantum Matrix Algebra}{Hai Jin}
+
+\arxiv{2610.39318v1}{Pre-modular fusion categories of global dimension $2p$}{Zhiqiang Yu}
+
+\arxiv{2610.39228v1}{Every group is the automorphism group of a set-theoretic solution of the Yang--Baxter equation}{G. Militaru}
+
+%RT&QA end
+
+
+\end{document}
