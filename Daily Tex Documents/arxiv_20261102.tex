@@ -1,0 +1,206 @@
+\documentclass[9pt, a4paper]{article}
+% ======================
+% 基础文档设置与中文支持
+% ======================
+\usepackage{geometry}           % 页面布局控制（边距、纸张大小等）
+\geometry{scale=0.75}
+\usepackage{setspace}           % 行间距控制
+\usepackage{fontspec}           % 高级字体控制
+\usepackage{xeCJK}              % 中文字体支持
+\usepackage{ctex}               % 完整中文支持
+\usepackage{CJKutf8}            % UTF-8编码支持（备用）
+\usepackage{zhnumber}           % 中文数字转换
+
+% ======================
+% 数学相关包
+% ======================
+\usepackage{amsmath}            % 基础数学公式（矩阵、多行公式等）
+\usepackage{amssymb}            % 扩展数学符号
+\usepackage{amsthm}             % 定理环境定制
+\usepackage{mathtools}          % amsmath的增强版（矩阵、符号等）
+\usepackage{mathrsfs}           % 提供花体字母
+\usepackage{latexsym}           % 特殊数学符号
+\usepackage{stmaryrd}            % 额外数学符号
+
+% ======================
+% 图形与绘图
+% ======================
+\usepackage{graphicx}           % 图片插入（\includegraphics）
+\usepackage{tikz}               % 矢量绘图核心包
+\usepackage{tikz-cd}            % 交换图绘制（范畴论）
+%\usepackage{quiver}             
+
+% ======================
+% 参考文献与引用
+% ======================
+\usepackage[authoryear]{natbib} % 作者-年份引用格式
+\usepackage{etoolbox}           % 参考文献工具（定制bib样式）
+
+% ======================
+% 超链接与交互
+% ======================
+\usepackage{xcolor}             % 颜色支持（链接着色）
+\usepackage{hyperref}           % 超链接/书签（需最后加载）
+\hypersetup{                    % hyperref配置
+    colorlinks=true,            % 彩色链接而非方框
+    citecolor=green,            % 引用颜色
+    urlcolor=red,               % 外部URL颜色
+    bookmarksnumbered=true      % 书签显示章节编号
+}
+\usepackage{cleveref}           % 智能引用（\cref自动识别类型）
+
+% ======================
+% 列表与布局增强
+% ======================
+\usepackage{enumitem}           % 列表定制（间距、标签等）
+\usepackage{fancyhdr}           % 页眉页脚定制
+\usepackage{lmodern}            % 拉丁现代字体（矢量字体）
+
+% ======================
+% 其他工具
+% ======================
+\usepackage{pdfpages} 
+
+% 定理环境样式
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{示例}
+\newtheorem{remark}[theorem]{注记}
+
+\theoremstyle{remark}
+
+% 自定义命令
+\definecolor{arxivblue}{RGB}{0, 102, 204}
+\newcommand{\arxiv}[3]{\href{https://arxiv.org/abs/#1}{#1}, \textbf{\textcolor{arxivblue}{#2}}, #3}
+\newcommand{\AGnumber}{19}
+\newcommand{\RTQAnumber}{26}
+\newcommand{\NewestDate}{2026年11月2日}
+
+\newcommand{\todayarXiver}{} %今天的整理者！
+
+
+
+\begin{document}
+\begin{center}
+    \Huge\textbf{不漏arXiv：\NewestDate\footnote{感谢arXiv提供的服务.}\footnote{今天的整理者是\todayarXiver}\footnote{由于arXiv api的局限性, 实际上获取的是arXiv api给出的最近三天submit的所有论文, 和recent页面可能有一定的差异. 三个category中没有进行去重, 顺序也可能存在一定问题, 麻烦整理者自行增删.}} \\
+\end{center}
+
+\setcounter{section}{-1}
+
+\begin{center}
+    今日AG数量：\AGnumber
+    
+    今日RT \& QA数量：\RTQAnumber
+    
+\end{center}
+
+
+\section{精选}
+
+
+\section{AG}
+%AG begin
+\arxiv{2610.42134v1}{Baker--Akhiezer sections from Higgs bundles and Landau levels in hyperbolic band theory}{Duong Dinh, Steven Rayan}
+
+\arxiv{2610.42123v1}{Abelianization and moment maps}{Elana Kalashnikov, Ruxandra Moraru, Francisco Villacis}
+
+\arxiv{2610.42110v1}{Grassmannians of absolute Banach-Colmez Spaces}{Zecheng Yi}
+
+\arxiv{2610.42045v1}{Motivic invariants of birational hyper-Kähler manifolds}{Weimufei Wu}
+
+\arxiv{2610.42022v1}{Spectral Beurling-Selberg Approximation and Applications to Effective Motivic Chebotarev-Sato-Tate Estimates}{Yassine El Kaouni}
+
+\arxiv{2610.41954v1}{The metric Zariski multiplicity conjecture in dimension 4}{José Edson Sampaio}
+
+\arxiv{2610.41931v1}{A Tropical Viewpoint on the Nagata--Biran--Szemberg Conjecture}{Juliette Bruce}
+
+\arxiv{2610.41929v1}{Alcove walks, crystal structure and a Levi branching rule}{Wenzhuo Wang}
+
+\arxiv{2610.41737v1}{$K$-tropical curves, Riemann-Roch and Serre duality}{Soham Karwa, Joseph Rabinoff}
+
+\arxiv{2610.41727v1}{Deformations of Calabi--Yau varieties over transversal or crystalline prisms}{Tingxiao Shi}
+
+\arxiv{2610.41719v1}{Relative Du Bois complexes over higher dimensional bases}{Dora Kassabova, Haoming Ning}
+
+\arxiv{2610.41631v1}{Numerical Kawamata--Viehweg vanishing for rank-three matroids}{Ronnie Cheng}
+
+\arxiv{2610.41587v1}{Extended Tropical Characteristic Fibers and Slopes of Binomial D-Modules}{Jen-Chieh Hsiao}
+
+\arxiv{2610.41578v1}{Tropicalization and Polyhedral Completions of Weyl Algebras}{Jen-Chieh Hsiao}
+
+\arxiv{2610.41573v1}{Iterated toric descent obstruction and homogeneous spaces over geometric global fields}{Felipe Gambardella, Nguyen Manh Linh}
+
+\arxiv{2610.41344v1}{Disconnectedness of stability manifolds and their geometric loci, and separation of braid orbits of semiorthogonal decompositions}{Genki Ouchi, Tomoki Yoshida}
+
+\arxiv{2610.41287v1}{Semipositivity and complete subvarieties of projectivised strata of holomorphic differentials}{Scott Mullane}
+
+\arxiv{2610.41237v1}{Odd-Degree Rigidity and a Numerical Characterization of Complete Flag Varieties}{Kiwamu Watanabe}
+
+\arxiv{2610.41174v1}{An atomic approach to Shokurov's conic-bundle conjecture}{Leonardo F. Cavenaghi, Ludmil Katzarkov, Daniel Pomerleano 等}
+
+%AG end
+
+\section{RT \& QA}
+%RT&QA begin
+\arxiv{2610.42110v1}{Grassmannians of absolute Banach-Colmez Spaces}{Zecheng Yi}
+
+\arxiv{2610.42080v1}{Relative homological algebra of filter modules}{Fritz Grimpen}
+
+\arxiv{2610.42022v1}{Spectral Beurling-Selberg Approximation and Applications to Effective Motivic Chebotarev-Sato-Tate Estimates}{Yassine El Kaouni}
+
+\arxiv{2610.41929v1}{Alcove walks, crystal structure and a Levi branching rule}{Wenzhuo Wang}
+
+\arxiv{2610.41829v1}{Decomposing super unitary representations using Berezin integration}{Gijs M. Tuynman}
+
+\arxiv{2610.41828v1}{Holomorphic functions and hulls of Matsuki-dual orbits of $SU(p,q)$ in complex Grassmannians}{Irfan Ullah}
+
+\arxiv{2610.41765v1}{On the generic case of Jiang's conjecture}{Chi-Heng Lo}
+
+\arxiv{2610.41759v1}{Derived tame monomial algebras}{Marlon Pimenta Fonseca, Zheng Xin}
+
+\arxiv{2610.41742v1}{On unitary representations of $p$-adic $\textrm{Sp}_{2n}$ and $\textrm{SO}_{2n+1}$ of purely bad parity}{Chi-Heng Lo}
+
+\arxiv{2610.41741v1}{A note on rational wavefront sets for finite special orthogonal groups}{Pengcheng Li, Zhicheng Wang}
+
+\arxiv{2610.41703v1}{Exchange graphs and $g$-vectors of surface rigid algebras}{Ping He, Bo Le}
+
+\arxiv{2610.41630v1}{Push forwards of smooth measures on the unitary group in odd characteristic under the Chevalley map are almost bounded}{Avraham Aizenbud, Nir Avni, Dmitry Gourevitch 等}
+
+\arxiv{2610.41614v1}{Quasi-projective dimensions over homological ring epimorphisms}{Weiheng Xia, Xiaolei Zhang}
+
+\arxiv{2610.41555v1}{Haiman's conjecture for n <= 10: Kazhdan-Lusztig positivity of monomial immanants}{Keith McNulty}
+
+\arxiv{2610.41529v1}{Equivariant Ehrhart series for rational simplices and rational cross-polytopes}{Ryo Uchiumi}
+
+\arxiv{2610.41527v1}{Composition factor algebras and finite representation type}{Bo Le, Bin Zhu}
+
+\arxiv{2610.41332v1}{Kloosterman Sums and Plücker Height Zeta Functions}{Li Cai, Jingsong Chai, Yadi Liu 等}
+
+\arxiv{2610.41237v1}{Odd-Degree Rigidity and a Numerical Characterization of Complete Flag Varieties}{Kiwamu Watanabe}
+
+\arxiv{2610.41155v1}{Changing parameters in Hall-Littlewood functions}{Aritra Bhattacharya, Ziyi Dai, Qilin Hou 等}
+
+\arxiv{2610.41150v1}{Smith Algebra from $\mathfrak{sl}_2$ Tensor Product Branching via the Mickelsson-Zhelobenko Algebra}{Kohei Hasegawa, Takuya Matsumoto, Akito Takashima}
+
+\arxiv{2610.41891v1}{Finite Composites of the Fibonacci Category with Pointed Fusion Categories}{Huixuan He, Zhengwei Liu}
+
+\arxiv{2610.41811v1}{Coxeter Rigidity and ADE Classification of Fibonacci-Generated Tensor Categories}{Huixuan He, Zhengwei Liu}
+
+\arxiv{2610.41774v1}{Coring morphisms presenting nonaffine noncommutative fibre bundles}{Zoran Škoda}
+
+\arxiv{2610.41766v1}{An odd version of the Grothendieck--Teichmüller Lie algebra and the odd Deligne--Drinfeld conjecture}{Florian Naef, Thomas Willwacher}
+
+\arxiv{2610.41605v1}{Restricted conformal blocks and the braiding on Zhu algebra modules}{Zhiguang Cui, Jianqi Liu}
+
+\arxiv{2610.41150v1}{Smith Algebra from $\mathfrak{sl}_2$ Tensor Product Branching via the Mickelsson-Zhelobenko Algebra}{Kohei Hasegawa, Takuya Matsumoto, Akito Takashima}
+
+%RT&QA end
+
+
+\end{document}
