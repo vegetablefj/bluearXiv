@@ -1,0 +1,290 @@
+\documentclass[9pt, a4paper]{article}
+% ======================
+% 基础文档设置与中文支持
+% ======================
+\usepackage{geometry}           % 页面布局控制（边距、纸张大小等）
+\geometry{scale=0.75}
+\usepackage{setspace}           % 行间距控制
+\usepackage{fontspec}           % 高级字体控制
+\usepackage{xeCJK}              % 中文字体支持
+\usepackage{ctex}               % 完整中文支持
+\usepackage{CJKutf8}            % UTF-8编码支持（备用）
+\usepackage{zhnumber}           % 中文数字转换
+
+% ======================
+% 数学相关包
+% ======================
+\usepackage{amsmath}            % 基础数学公式（矩阵、多行公式等）
+\usepackage{amssymb}            % 扩展数学符号
+\usepackage{amsthm}             % 定理环境定制
+\usepackage{mathtools}          % amsmath的增强版（矩阵、符号等）
+\usepackage{mathrsfs}           % 提供花体字母
+\usepackage{latexsym}           % 特殊数学符号
+\usepackage{stmaryrd}            % 额外数学符号
+
+% ======================
+% 图形与绘图
+% ======================
+\usepackage{graphicx}           % 图片插入（\includegraphics）
+\usepackage{tikz}               % 矢量绘图核心包
+\usepackage{tikz-cd}            % 交换图绘制（范畴论）
+%\usepackage{quiver}             
+
+% ======================
+% 参考文献与引用
+% ======================
+\usepackage[authoryear]{natbib} % 作者-年份引用格式
+\usepackage{etoolbox}           % 参考文献工具（定制bib样式）
+
+% ======================
+% 超链接与交互
+% ======================
+\usepackage{xcolor}             % 颜色支持（链接着色）
+\usepackage{hyperref}           % 超链接/书签（需最后加载）
+\hypersetup{                    % hyperref配置
+    colorlinks=true,            % 彩色链接而非方框
+    citecolor=green,            % 引用颜色
+    urlcolor=red,               % 外部URL颜色
+    bookmarksnumbered=true      % 书签显示章节编号
+}
+\usepackage{cleveref}           % 智能引用（\cref自动识别类型）
+
+% ======================
+% 列表与布局增强
+% ======================
+\usepackage{enumitem}           % 列表定制（间距、标签等）
+\usepackage{fancyhdr}           % 页眉页脚定制
+\usepackage{lmodern}            % 拉丁现代字体（矢量字体）
+
+% ======================
+% 其他工具
+% ======================
+\usepackage{pdfpages} 
+
+% 定理环境样式
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{示例}
+\newtheorem{remark}[theorem]{注记}
+
+\theoremstyle{remark}
+
+% 自定义命令
+\definecolor{arxivblue}{RGB}{0, 102, 204}
+\newcommand{\arxiv}[3]{\href{https://arxiv.org/abs/#1}{#1}, \textbf{\textcolor{arxivblue}{#2}}, #3}
+\newcommand{\AGnumber}{43}
+\newcommand{\RTQAnumber}{44}
+\newcommand{\NewestDate}{2026年11月3日}
+
+\newcommand{\todayarXiver}{} %今天的整理者！
+
+
+
+\begin{document}
+\begin{center}
+    \Huge\textbf{不漏arXiv：\NewestDate\footnote{感谢arXiv提供的服务.}\footnote{今天的整理者是\todayarXiver}\footnote{由于arXiv api的局限性, 实际上获取的是arXiv api给出的最近三天submit的所有论文, 和recent页面可能有一定的差异. 三个category中没有进行去重, 顺序也可能存在一定问题, 麻烦整理者自行增删.}} \\
+\end{center}
+
+\setcounter{section}{-1}
+
+\begin{center}
+    今日AG数量：\AGnumber
+    
+    今日RT \& QA数量：\RTQAnumber
+    
+\end{center}
+
+
+\section{精选}
+
+
+\section{AG}
+%AG begin
+\arxiv{2611.03606v1}{Isogeny rigidity under algebraic group actions and finite translation orbits}{Paolo Dolce, Francesco Tropeano, Ekaterina Amerik}
+
+\arxiv{2611.03572v1}{Counterexamples to the Jacobian Conjecture from the viewpoint of lineability}{L. Bernal-González, M. C. Calderón-Moreno, J. A. Prado-Bassas}
+
+\arxiv{2611.03566v1}{GW/PT-correspondence for CY $4$-fold-II: Virtual Classes}{Ivan Karpov}
+
+\arxiv{2611.03514v1}{Quantitative finiteness for maximal complex totally geodesic submanifolds of non-arithmetic ball quotients}{Tianzhi Hu, Runze Zhang}
+
+\arxiv{2611.03464v1}{Spectral pairs of Newton non-degenerate polynomials with isolated singularities}{Seung-Jo Jung, In-Kyun Kim, Morihiko Saito 等}
+
+\arxiv{2611.03402v1}{Singular Loci of SL2(C)-Representation Varieties of Non-Hopfian Baumslag--Solitar Groups}{S. Liriano}
+
+\arxiv{2611.03311v1}{The Universal Nilpotent Cone and a Canonical 1-form}{Marius Kjærsgaard}
+
+\arxiv{2611.03225v1}{Human Variations on AI Mathematics}{Junyan Cao, Mihai Paun}
+
+\arxiv{2611.03124v1}{Hodge--Riemann relations for $m$-positive and generalized $m$-positive forms}{Enhan Li}
+
+\arxiv{2611.03036v1}{Positive integral points on Mordell-Schinzel surfaces}{Antoine de Saint Germain, Robin Zhang}
+
+\arxiv{2611.02967v1}{Operator Fejér--Riesz Theorems with Gaps and Degree Bounds}{Abhay Jindal, Aljaž Zalar}
+
+\arxiv{2611.02838v1}{Characterization of the boundary zero set of stable polynomials in $\mathbb B_2$}{Dimitrios Vavitsas}
+
+\arxiv{2611.02717v1}{Universal Curve Counting in Calabi-Yau 4-folds}{Ivan Karpov, Felix Thimm}
+
+\arxiv{2611.02577v1}{$S_n$-equivariant $L$-classes of Cartesian powers of Witt spaces and the Hodge index conjecture for symmetric products}{Mohammadali Aligholi}
+
+\arxiv{2611.02496v1}{The topology of the amoeba map and maximal volume}{Mounir Nisse}
+
+\arxiv{2611.02417v1}{Calogero-Moser Polynomial Approximations and Dwork Congruences for Complete Flags}{Peter Koroteev}
+
+\arxiv{2611.02398v1}{A Global Generic Locus for Elementary Abelian p-covers of P^1 with two Ramification Points}{Robert Moore, Hui June Zhu}
+
+\arxiv{2611.02388v1}{Construction of stability conditions on some Kuznetsov components}{Dongjian Wu}
+
+\arxiv{2611.02320v1}{Motivic Eilenberg--Mac Lane spaces at the characteristic}{Tom Bachmann, Michael J. Hopkins}
+
+\arxiv{2611.02261v1}{Normality of closures of conormal bundles to Schubert cells for $\operatorname{GL}_n$}{Ekaterina Bogdanova, Dyne Lee}
+
+\arxiv{2611.02013v1}{The Coxeter-Todd abelian sixfold, Gamma00, and big Schottky}{Samuel Grushevsky}
+
+\arxiv{2611.02000v1}{A Reider-type theorem for syzygies of cyclic covers of anticanonical rational surfaces}{Lei Song}
+
+\arxiv{2611.01961v1}{Moduli spaces of rank 2 sheaves on $\mathbb P^3$ via Quot schemes}{Charles Almeida, Nicolò Bignami, Marcos Jardim 等}
+
+\arxiv{2611.01745v1}{A remark on the AI proof of the Deligne--Drinfeld conjecture}{Nikita Markarian}
+
+\arxiv{2611.01716v1}{Derived Torelli for Kuznetsov components of cubic fourfolds}{Hanfei Guo, Ruxuan Zhang}
+
+\arxiv{2611.01654v1}{Absolute descent and the Bénabou--Roubaud theorem}{Fernando Lucatelli Nunes}
+
+\arxiv{2611.01546v1}{MDS Algebraic Geometry Codes of Square-Root Length on Hyperelliptic Curves}{Chuangqiang Hu, Guorui Ma}
+
+\arxiv{2611.01528v1}{The most singular loci of twisted character varieties}{Cheng Shu}
+
+\arxiv{2611.01508v1}{Du Bois cohomology of noncommutative spaces and the Hodge numbers invariance conjecture for singular varieties}{Andrei Konovalov}
+
+\arxiv{2611.01497v1}{Eynard-Orantin Topological Recursions for Higher Weil-Petersson Volumes on Moduli Spaces of Super Riemann Surfaces}{Dingkang Xiong, Jian Zhou}
+
+\arxiv{2611.01423v1}{The classification of Fano contact manifolds revisited}{Baohua Fu}
+
+\arxiv{2611.01418v1}{Topological transcendence degree and the dimension problem for perfectoid spaces}{Dimitri Dine, Jack J Garzella}
+
+\arxiv{2611.01273v1}{Artinian reduction applied to the Largest Intersection Problem}{Yuxin Lin}
+
+\arxiv{2611.01260v1}{Gromov-Witten theory of the local model of the standard flop}{Alex Dänzer, Yannik Schuler}
+
+\arxiv{2611.01210v1}{Hodge theory and topology of Bogomolov--Guan manifolds}{Nikon Kurnosov, Ángel David Ríos Ortiz}
+
+\arxiv{2611.01138v1}{Seshadri functions on surfaces}{Cyril J. Jacob}
+
+\arxiv{2611.01104v1}{Secant dimensions and bilinear decomposition widths for finite Heisenberg groups}{Nguyen Bich Van, Nguyen Trung Kien}
+
+\arxiv{2611.01008v1}{On motivic multiplicativity of cyclic covers}{Ze Xu}
+
+\arxiv{2611.00997v1}{Canonical quantum curve I}{Shuai Guo, Qingsheng Zhang}
+
+\arxiv{2611.00990v1}{Galois Actions on Energy-Harmonic Functions}{Bella Finkel}
+
+\arxiv{2611.00864v1}{From MHV Gravity Amplitudes and Hodges map to Pentad Varieties}{Joris Koefler, Emanuele Ventura, Hongmiao Yu}
+
+\arxiv{2611.00861v1}{Regions of totally real arrangements of rational curves}{Masahiko Yoshinaga}
+
+\arxiv{2611.00813v1}{Stable compatibility for model categories}{Kunal Arora, Vivek Mohan Mallick}
+
+%AG end
+
+\section{RT \& QA}
+%RT&QA begin
+\arxiv{2611.03470v1}{Zeta functions of quasi-split reductive algebraic groups over local fields}{Marcus du Sautoy}
+
+\arxiv{2611.03342v1}{Geometrization of Kottwitz-Shelstad transfer and Vogan's conjecture on local Arthur packets}{Clifton Cunningham, Alexander Hazeltine, Baiying Liu 等}
+
+\arxiv{2611.03303v1}{A resolution of the Steinberg module of a parabolic subgroup of GL_n}{Avner Ash, Paul E. Gunnells}
+
+\arxiv{2611.03204v1}{Hammock coordinates for silting subcategories of derived-discrete algebras}{Shantanu Sardar}
+
+\arxiv{2611.02904v1}{Representations of Bound Quivers over $\mathbb{F}_1$ and Hall Algebras}{Changjian Fu, Xuelian Xiao}
+
+\arxiv{2611.02795v1}{Correlators of the Jacobi Unitary Ensemble on a General Interval and Hurwitz Numbers}{Matvey Sushkov}
+
+\arxiv{2611.02789v1}{Closed energy formulas on tensor squares of perfect crystals of types $D_4^{(3)}$ and $G_2^{(1)}$}{Shaolong Han}
+
+\arxiv{2611.02749v1}{Generalized parabolic Demazure modules and the N!/2-conjecture for two-row diagrams}{Anton Khoroshkin, Ievgen Makedonskyi}
+
+\arxiv{2611.02683v1}{Extensions at Nonzero p-Characters for Cartan-Type Lie Algebras}{Chao Ma}
+
+\arxiv{2611.02670v1}{Multiplicity one for a linear spherical pair and its unitary analogue}{Yuxuan Ge}
+
+\arxiv{2611.02575v1}{Planar Convexity of Isotropy Orbits via Cohomology and Common Zeros}{Yongzhi Luan, Tin-Yau Tam}
+
+\arxiv{2611.02417v1}{Calogero-Moser Polynomial Approximations and Dwork Congruences for Complete Flags}{Peter Koroteev}
+
+\arxiv{2611.02261v1}{Normality of closures of conormal bundles to Schubert cells for $\operatorname{GL}_n$}{Ekaterina Bogdanova, Dyne Lee}
+
+\arxiv{2611.02080v1}{Koszul duality for boundary categories}{Yuan Gao, Zhen Gao}
+
+\arxiv{2611.02071v1}{Functoriality probes over number fields by mixed zero correlations}{Yangbo Ye}
+
+\arxiv{2611.02058v1}{Probing automorphic induction through zero correlations and secondary arithmetic terms}{Yangbo Ye}
+
+\arxiv{2611.02043v1}{A proof of the sharpness conjectures for all saturated fusion systems}{Baoyu Zhang, Shengmin Zhang}
+
+\arxiv{2611.01803v1}{RaFH and CRaFH superalgebras: Frobenius forms, representation theory and respectability}{Andrew Mathas, Catharina Stroppel}
+
+\arxiv{2611.01762v1}{Siegel-Weil type identities for general linear groups related to parabolic induction from two Speh representations}{David Ginzburg, David Soudry}
+
+\arxiv{2611.01672v1}{A faithful representation and profinite completion}{Wonyong Jang}
+
+\arxiv{2611.01608v1}{The inductive Navarro-Alperin weight condition for the Suzuki and Ree groups}{Qianhu Zhou}
+
+\arxiv{2611.01545v1}{Idempotent Ultrafilters and Closed Images of Complete Semilattices}{Alexander V. Osipov, Konstantin Kazachenko}
+
+\arxiv{2611.01528v1}{The most singular loci of twisted character varieties}{Cheng Shu}
+
+\arxiv{2611.01428v1}{Whittaker modules for the principal $W$-algebra $\mathcal W^k(\mathfrak{sl}_3)$ via free field realizations}{Dražen Adamović, Nina Yu}
+
+\arxiv{2611.01412v1}{The Yangian associated with the binary tree}{Mamoru Ueda}
+
+\arxiv{2611.00966v1}{Categorifications of noncrossing partitions of type B and affine type A}{Yiyu Cheng}
+
+\arxiv{2611.00913v1}{Auslander-type grade conditions and subcategories related to syzygy modules}{Yuya Otake}
+
+\arxiv{2611.00905v1}{$AV$-modules on affine algebraic groups}{Yuly Billig, Colin Ingalls}
+
+\arxiv{2611.00882v1}{Relative Rouquier linearity and inverse hybrid Kazhdan-Lusztig positivity}{Kaixuan Gan, Xun Xie, Qifan Zhou}
+
+\arxiv{2611.00757v1}{A proof of the Zariski closure conjecture and quasi-Frobenius exponential algebras}{Ali Baklouti}
+
+\arxiv{2611.03611v1}{Associated Varieties of Finite-Group Orbifolds}{Andrew Riesen}
+
+\arxiv{2611.03560v1}{Haagerup symmetries of the $E_8$ theory and conformal nets at central charge eight}{Cédric Arhancet}
+
+\arxiv{2611.03380v1}{Centralizers of maps as automorphism groups of Yang--Baxter solutions}{Gigel Militaru}
+
+\arxiv{2611.03348v1}{Quaternionic and Octonionic Frameworks for Quantum Computation: Mathematical Structures, Models, and Fundamental Limitations}{Johan Heriberto Rúa Muñoz, Jorge Eduardo Mahecha Gómez, Santiago Pineda Montoya}
+
+\arxiv{2611.02714v1}{Triangle Relation Planar Algebras: Cohomology, Classification, and New Families}{Jiaqi Li, Zhengwei Liu}
+
+\arxiv{2611.02582v1}{Quantum 6j-symbols arising from a subfactor of finite index and finite depth and the zipper condition for 4-tensors in two-dimensional topological order}{Yasuyuki Kawahigashi}
+
+\arxiv{2611.02100v1}{Electrical quantum groups}{D. Algethami, A. Mudrov, V. Stukopin}
+
+\arxiv{2611.02070v1}{Classical and Quantum Logics with Multiple Non-Equivalent and Non-Isomorphic Models}{Mladen Pavicic}
+
+\arxiv{2611.01803v1}{RaFH and CRaFH superalgebras: Frobenius forms, representation theory and respectability}{Andrew Mathas, Catharina Stroppel}
+
+\arxiv{2611.01745v1}{A remark on the AI proof of the Deligne--Drinfeld conjecture}{Nikita Markarian}
+
+\arxiv{2611.01618v1}{Haagerup vertex operator algebras at central charge eight}{Cédric Arhancet}
+
+\arxiv{2611.01524v1}{From Ghost SICs to SIC-POVMs: A Galois Reduction of Zauner's Conjecture}{Hassan Khodaiemehr}
+
+\arxiv{2611.01428v1}{Whittaker modules for the principal $W$-algebra $\mathcal W^k(\mathfrak{sl}_3)$ via free field realizations}{Dražen Adamović, Nina Yu}
+
+\arxiv{2611.00632v1}{Completing the classification of Hopf superalgebras of dimension up to 10}{Taiki Shibata, Kenichi Shimizu, Ryota Wakao}
+
+%RT&QA end
+
+
+\end{document}
