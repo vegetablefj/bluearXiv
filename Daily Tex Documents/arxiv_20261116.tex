@@ -1,0 +1,208 @@
+\documentclass[9pt, a4paper]{article}
+% ======================
+% 基础文档设置与中文支持
+% ======================
+\usepackage{geometry}           % 页面布局控制（边距、纸张大小等）
+\geometry{scale=0.75}
+\usepackage{setspace}           % 行间距控制
+\usepackage{fontspec}           % 高级字体控制
+\usepackage{xeCJK}              % 中文字体支持
+\usepackage{ctex}               % 完整中文支持
+\usepackage{CJKutf8}            % UTF-8编码支持（备用）
+\usepackage{zhnumber}           % 中文数字转换
+
+% ======================
+% 数学相关包
+% ======================
+\usepackage{amsmath}            % 基础数学公式（矩阵、多行公式等）
+\usepackage{amssymb}            % 扩展数学符号
+\usepackage{amsthm}             % 定理环境定制
+\usepackage{mathtools}          % amsmath的增强版（矩阵、符号等）
+\usepackage{mathrsfs}           % 提供花体字母
+\usepackage{latexsym}           % 特殊数学符号
+\usepackage{stmaryrd}            % 额外数学符号
+
+% ======================
+% 图形与绘图
+% ======================
+\usepackage{graphicx}           % 图片插入（\includegraphics）
+\usepackage{tikz}               % 矢量绘图核心包
+\usepackage{tikz-cd}            % 交换图绘制（范畴论）
+%\usepackage{quiver}             
+
+% ======================
+% 参考文献与引用
+% ======================
+\usepackage[authoryear]{natbib} % 作者-年份引用格式
+\usepackage{etoolbox}           % 参考文献工具（定制bib样式）
+
+% ======================
+% 超链接与交互
+% ======================
+\usepackage{xcolor}             % 颜色支持（链接着色）
+\usepackage{hyperref}           % 超链接/书签（需最后加载）
+\hypersetup{                    % hyperref配置
+    colorlinks=true,            % 彩色链接而非方框
+    citecolor=green,            % 引用颜色
+    urlcolor=red,               % 外部URL颜色
+    bookmarksnumbered=true      % 书签显示章节编号
+}
+\usepackage{cleveref}           % 智能引用（\cref自动识别类型）
+
+% ======================
+% 列表与布局增强
+% ======================
+\usepackage{enumitem}           % 列表定制（间距、标签等）
+\usepackage{fancyhdr}           % 页眉页脚定制
+\usepackage{lmodern}            % 拉丁现代字体（矢量字体）
+
+% ======================
+% 其他工具
+% ======================
+\usepackage{pdfpages} 
+
+% 定理环境样式
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{示例}
+\newtheorem{remark}[theorem]{注记}
+
+\theoremstyle{remark}
+
+% 自定义命令
+\definecolor{arxivblue}{RGB}{0, 102, 204}
+\newcommand{\arxiv}[3]{\href{https://arxiv.org/abs/#1}{#1}, \textbf{\textcolor{arxivblue}{#2}}, #3}
+\newcommand{\AGnumber}{23}
+\newcommand{\RTQAnumber}{23}
+\newcommand{\NewestDate}{2026年11月16日}
+
+\newcommand{\todayarXiver}{} %今天的整理者！
+
+
+
+\begin{document}
+\begin{center}
+    \Huge\textbf{不漏arXiv：\NewestDate\footnote{感谢arXiv提供的服务.}\footnote{今天的整理者是\todayarXiver}\footnote{由于arXiv api的局限性, 实际上获取的是arXiv api给出的最近三天submit的所有论文, 和recent页面可能有一定的差异. 三个category中没有进行去重, 顺序也可能存在一定问题, 麻烦整理者自行增删.}} \\
+\end{center}
+
+\setcounter{section}{-1}
+
+\begin{center}
+    今日AG数量：\AGnumber
+    
+    今日RT \& QA数量：\RTQAnumber
+    
+\end{center}
+
+
+\section{精选}
+
+
+\section{AG}
+%AG begin
+\arxiv{2611.18560v1}{On the pure part of the cohomology of character varieties}{Olivier Schiffmann, Eric Vasserot}
+
+\arxiv{2611.18555v1}{Towards invertibility of derived categories of sheaf-theoretic line operators}{Claudia Scheimbauer, Jackson Van Dyke}
+
+\arxiv{2611.18432v1}{A quotient formula for the Behrend function}{Fatemeh Rezaee}
+
+\arxiv{2611.18374v1}{The $\operatorname{Proj}$ construction for pro-graded Huber pairs}{Dimitri Dine}
+
+\arxiv{2611.18357v1}{The Moduli of Canonical Threefolds of Minimum Volume}{Pinxian Bie, Peien Du, Zhengjie Yu}
+
+\arxiv{2611.18317v1}{Non-abelian Hodge correspondence for semistable parabolic connections on curves in positive characteristic}{Shiyu Shen}
+
+\arxiv{2611.18289v1}{Transforming local positivity: from minimal valuations to irrational Seshadri constants}{Sönke Rollenske}
+
+\arxiv{2611.18258v1}{Equivariant resolution of singularities for $T$-varieties in positive characteristic}{Gary Martínez-Núnez}
+
+\arxiv{2611.18222v1}{Motivic Invariants of Automorphisms and the Plane Cremona Group}{Ran Azouri, Anubhav Nanavaty, Jesse Pajwani}
+
+\arxiv{2611.18218v1}{The Chabauty--Kim dimension inequality via noncommutative Iwasawa theory}{Sa'ar Zehavi}
+
+\arxiv{2611.18212v1}{Frobenius and perfection in framed motives}{Grigory Garkusha}
+
+\arxiv{2611.18167v1}{Equidistribution of Gross lattices of supersingular elliptic curves}{Lam L. Pham}
+
+\arxiv{2611.18047v1}{Twisted Fourier-Mukai partners of genus 1 curves}{Tanya Kaushal Srivastava, Sofia Tirabassi, Naïa Vivares}
+
+\arxiv{2611.17901v1}{Chow Stability of Polarized K3 Surfaces with ADE singularities}{Zhiyuan Li}
+
+\arxiv{2611.17893v1}{Fano-Enriques threefolds of Fano index $>1$}{Kuzma Khrabrov}
+
+\arxiv{2611.17847v1}{Projective surfaces with infinite fundamental group and trivial profinite completion}{Wenchuan Hu, Peihan Wu}
+
+\arxiv{2611.17844v1}{A Helly theorem for the Bruhat-Tits building}{Rudrendra Kashyap, Kiumars Kaveh, Christopher Manon 等}
+
+\arxiv{2611.17841v1}{Inequalities for intersection numbers from Hodge-Riemann relations}{Xiangru Zeng}
+
+\arxiv{2611.17782v1}{Exceptional sequences of line bundles on $\mathrm{Fl}(1,\ell;\ell+1)$}{Likai Yang}
+
+\arxiv{2611.17764v1}{Rational lines on pairs of quadrics and cubic hypersurfaces}{Tim Browning, Stephanie Chan, Nick Rome}
+
+\arxiv{2611.17734v1}{Global generation of coinvariant vector bundles on $\overline{\mathrm{M}}_{0,n}$}{Avik Chakravarty, Jianqi Liu}
+
+\arxiv{2611.17685v1}{Semistable 1-Motives: Monodromy, Explicit Periods, and Local Duality}{Mohammadreza Mohajer}
+
+\arxiv{2611.17647v1}{Vector bundles on spin Kähler surfaces and the multi-spinor Seiberg-Witten equations}{Minh Lam Nguyen, Ollie Thakar}
+
+%AG end
+
+\section{RT \& QA}
+%RT&QA begin
+\arxiv{2611.18560v1}{On the pure part of the cohomology of character varieties}{Olivier Schiffmann, Eric Vasserot}
+
+\arxiv{2611.18518v1}{Polytopal realization of double root free subword complexes}{Zijun Li}
+
+\arxiv{2611.18328v1}{Matrix ultraproducts have trivial fundamental group}{Hiroshi Ando, Isaac Goldbring}
+
+\arxiv{2611.18308v1}{Syzygy matrices and higher extensions over string algebras}{Martin Irungu}
+
+\arxiv{2611.18285v1}{On non-vanishing of the first Hochschild cohomology of blocks}{Matthew Antrobus}
+
+\arxiv{2611.18198v1}{Infinite Index Identities for Argyres-Douglas Theories and Graded Vector Space Isomorphisms for VOAs}{Hongliang Jiang}
+
+\arxiv{2611.18191v1}{Representing in Low rank II: Virtual structure and Isomorphism problem}{Robynn Corveleyn, Geoffrey Janssens, Doryan Temmerman}
+
+\arxiv{2611.18049v1}{Dualizing involutions on Kazhdan-Patterson covers of $\mathrm{GL}(r)$}{Ila Ahmad, Kumar Balasubramanian, Sanjeev Kumar Pandey 等}
+
+\arxiv{2611.17993v1}{On character conductors and Sylow p-subgroups}{Yang Zhou, Heguo Liu}
+
+\arxiv{2611.17812v1}{Closed formulas for the permanents of structured matrices}{M. Fazeel Anwar}
+
+\arxiv{2611.17732v1}{Rigidity for pivotal braided r-categories of moderate growth and applications to vertex operator algebras}{Robert McRae}
+
+\arxiv{2611.17719v1}{The non-stationary $\widehat{\mathfrak{gl}}_N$ affine Laumon function and its difference equation}{Philippe Di Francesco, Rinat Kedem}
+
+\arxiv{2611.17694v1}{Admissible Yang--Baxter equation for Nijenhuis perm superalgebras}{Imed Basdouri, Bouzid Mosbahi, Yuanyuan Zhang}
+
+\arxiv{2611.17683v1}{delta-Derivations of Finite-Dimensional Simple Lie Algebras with Values in Arbitrary Modules}{Lulu Jiang, Dong Liu, Yufeng Pei}
+
+\arxiv{2611.17677v1}{Folding of cluster algebras}{Woo-Seok Jung, Se-jin Oh}
+
+\arxiv{2611.18555v1}{Towards invertibility of derived categories of sheaf-theoretic line operators}{Claudia Scheimbauer, Jackson Van Dyke}
+
+\arxiv{2611.18237v1}{Link invariants in nilpotent group gauge theories}{Thomas Nicosanti, Pavel Putrov, Johann Quenta-Raygada}
+
+\arxiv{2611.18198v1}{Infinite Index Identities for Argyres-Douglas Theories and Graded Vector Space Isomorphisms for VOAs}{Hongliang Jiang}
+
+\arxiv{2611.18040v1}{Hidden Quantum Markov Processes: Mealy Formulation and Observable Reduction}{Soueidi El Gheteb, Abdessatar Souissi}
+
+\arxiv{2611.17734v1}{Global generation of coinvariant vector bundles on $\overline{\mathrm{M}}_{0,n}$}{Avik Chakravarty, Jianqi Liu}
+
+\arxiv{2611.17732v1}{Rigidity for pivotal braided r-categories of moderate growth and applications to vertex operator algebras}{Robert McRae}
+
+\arxiv{2611.17719v1}{The non-stationary $\widehat{\mathfrak{gl}}_N$ affine Laumon function and its difference equation}{Philippe Di Francesco, Rinat Kedem}
+
+\arxiv{2611.17677v1}{Folding of cluster algebras}{Woo-Seok Jung, Se-jin Oh}
+
+%RT&QA end
+
+
+\end{document}
